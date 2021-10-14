@@ -6,15 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Naturist</title>
     <link rel="stylesheet" href="./src/style/index.css" />
+    <link rel="stylesheet" href="./src/style/main.css" />
+
     <link rel="icon" href="./src/img/favicon.ico" type="image/x-icon" />
     <script src="./src/script/app.js" defer></script>
   </head>
   <body>
     <div class="container">
+      <div class="bg hidden">
+        <div class="lds-ring">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
       <header class="header">
         <nav class="nav">
           <a href="./index.html" class="logo">Naturist</a>
-          <ul class="list">
+          <ul class="user-not-loggedin list">
             <li class="list-item">
               <a href="" class="list-item-link">Tour</a>
             </li>
@@ -28,6 +38,30 @@
               <a href="./signup.html" class="list-item-link signup-link"
                 >Signup</a
               >
+            </li>
+          </ul>
+          <ul class="list user-loggedin hidden">
+            <li class="list-item">
+              <a href="" class="list-item-link">Tour</a>
+            </li>
+            <li class="list-item">
+              <a href="" class="list-item-link">About Me</a>
+            </li>
+
+            <li class="list-item user-info">
+              <a href="./signup.html" class="list-item-link user-name"
+                >Welcome</a
+              >
+              <div class="user-info-options">
+                <ul>
+                  <li>
+                    <a href="">Dashboard</a>
+                  </li>
+                  <li class="logout-btn">
+                    <a href="#">Logout</a>
+                  </li>
+                </ul>
+              </div>
             </li>
           </ul>
         </nav>

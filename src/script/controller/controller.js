@@ -1,7 +1,24 @@
 import { LoginElements } from "../view/loginView";
+import { IndexView } from "../view/indexView";
 import { callAPI } from "../model/model";
+import { Spinner } from "../view/spinner";
 
 const loginElements = new LoginElements();
+const indexViewElements = new IndexView();
+const spinner = new Spinner();
+
+const isUserLoggedIn = async () => {
+  try {
+    const user = await callAPI("/api/user/about-me", "GET");
+    if (user.status === "success") {
+      indexViewElements.updateUI(user);
+      spinner.hideSpinner();
+    }
+    spinner.hideSpinner();
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 const login = async () => {
   try {
@@ -13,7 +30,21 @@ const login = async () => {
       console.log(response.message);
     }
     loginElements.defaultUI();
-    //   window.location.href = "/";
+
+    window.location.href = "/";
+    // spinner.showSpinner();
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const logoutBtnCall = async () => {
+  console.log("logging out");
+  try {
+    spinner.showSpinner();
+    await callAPI("/api/user/logout", "GET");
+    indexViewElements.defaultUI();
+    spinner.hideSpinner();
   } catch (err) {
     console.log(err);
   }
@@ -21,11 +52,12 @@ const login = async () => {
 
 const init = async () => {
   try {
+    spinner.showSpinner();
     if (loginElements.loginBtn) {
       loginElements.loginBtn.addEventListener("click", login);
     }
-    const response = await callAPI("/api/user/about-me", "GET");
-    console.log(response);
+    await isUserLoggedIn();
+    indexViewElements.getlogoutBtn().addEventListener("click", logoutBtnCall);
   } catch (err) {
     console.log(err);
   }
