@@ -1,26 +1,34 @@
 import { LoginElements } from "../view/loginView";
-import { loginAPICall, isLoggedIn } from "../model/model";
+import { callAPI } from "../model/model";
 
 const loginElements = new LoginElements();
 
 const login = async () => {
-  const input = loginElements.getLoginInputs();
-  loginElements.updateUI();
-  const response = await loginAPICall(input);
-  if (response.status === "Fail") {
+  try {
+    const input = loginElements.getLoginInputs();
+    loginElements.updateUI();
+    const response = await callAPI("/api/user/login", "POST", input);
+    if (response.status === "Fail") {
+      loginElements.defaultUI();
+      console.log(response.message);
+    }
     loginElements.defaultUI();
-    return console.log(response.message);
+    //   window.location.href = "/";
+  } catch (err) {
+    console.log(err);
   }
-  loginElements.defaultUI();
-  //   window.location.href = "/";
 };
 
 const init = async () => {
-  if (loginElements.loginBtn) {
-    loginElements.loginBtn.addEventListener("click", login);
+  try {
+    if (loginElements.loginBtn) {
+      loginElements.loginBtn.addEventListener("click", login);
+    }
+    const response = await callAPI("/api/user/about-me", "GET");
+    console.log(response);
+  } catch (err) {
+    console.log(err);
   }
-  const response = await isLoggedIn();
-  console.log(response);
 };
 
 init();
