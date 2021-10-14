@@ -1,34 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap");
-
-html {
-  font-family: "Roboto", sans-serif;
-  /* letter-spacing: -1px; */
-}
-
-body {
-  padding: 4rem;
-  background-color: #fff;
-  max-width: 1140px;
-  margin: 0 auto;
-  color: #585858;
-}
-
-html {
-  font-size: 100%;
-}
-
-.container {
-  max-width: 80%;
-  margin: 0 auto;
-  display: block;
-}
-
 .tour {
   display: grid;
   grid-template-columns: 60% 1fr;
   box-shadow: 0 0 88px 0 rgba(0, 0, 0, 0.555);
   color: #464646;
-  margin-top: 8rem;
+  margin: 8rem 0rem;
 }
 
 .tour-container {
@@ -59,7 +34,6 @@ html {
   transform: scale(1.2);
   padding: 2rem 1rem;
   border-radius: 2px;
-  /* background-image: linear-gradient(#27ae60, #16a085); */
   background-color: #fff;
 }
 
@@ -148,49 +122,4 @@ html {
 
 .dollar {
   font-size: 1.5rem;
-}
-
-@media (max-width: 1020px) {
-  html {
-    font-size: 90%;
-  }
-}
-
-@media (max-width: 900px) {
-  html {
-    font-size: 85%;
-  }
-}
-
-@media (max-width: 790px) {
-  .tour {
-    /* display: flex;
-    flex-direction: column; */
-    max-width: 100%;
-    margin: 0 auto;
-    margin-bottom: 7rem;
-  }
-  .tour-right {
-    transform: scale(1);
-  }
-
-  .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    max-width: 100%;
-    gap: 3rem;
-  }
-  body {
-    padding: 4rem 2rem;
-  }
-}
-
-@media (max-width: 650px) {
-  .tour {
-    max-width: 100%;
-    margin-bottom: 4rem;
-  }
-  .container {
-    grid-template-columns: 1fr;
-  }
 }
