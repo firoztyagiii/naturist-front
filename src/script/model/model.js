@@ -16,7 +16,6 @@ export const callAPI = async (url, type, payload) => {
   try {
     const res = await fetch(`${_DOMAIN}${url}`, fetchConfig);
     const response = await res.json();
-    console.log(response);
     return response;
   } catch (err) {
     console.log(err);

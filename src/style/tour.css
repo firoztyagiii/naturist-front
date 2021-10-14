@@ -20,14 +20,20 @@ html {
 .container {
   max-width: 80%;
   margin: 0 auto;
+  display: block;
 }
 
 .tour {
   display: grid;
-  grid-template-columns: 65% 35%;
+  grid-template-columns: 60% 1fr;
   box-shadow: 0 0 88px 0 rgba(0, 0, 0, 0.555);
   color: #464646;
-  margin-bottom: 12rem;
+  margin-top: 8rem;
+}
+
+.tour-container {
+  max-width: 70%;
+  margin: 0 auto;
 }
 
 .tour-left {
@@ -158,8 +164,8 @@ html {
 
 @media (max-width: 790px) {
   .tour {
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
     max-width: 100%;
     margin: 0 auto;
     margin-bottom: 7rem;
