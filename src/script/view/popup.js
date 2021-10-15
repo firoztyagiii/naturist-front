@@ -9,8 +9,10 @@ export class Popup {
   }
 
   hidePopup() {
-    const popup = document.querySelector(".popup");
-    popup.style.display = "none";
-    popup.style.opacity = "0";
+    setTimeout(() => {
+      const popup = document.querySelector(".popup");
+      popup.style.display = "none";
+      popup.style.opacity = "0";
+    }, 3000);
   }
 }

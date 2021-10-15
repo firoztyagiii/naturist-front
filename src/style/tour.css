@@ -1,144 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100&display=swap");
+
+.container {
+  background-color: #f1f1f1;
+}
+
 .tour-container {
-  max-width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 25% 25% 25%;
+  justify-content: center;
   gap: 3rem;
-  justify-items: center;
-  margin: 6rem 0rem;
+  padding: 7rem 0rem;
 }
 
 .tour {
-  max-width: 90%;
-  box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 15%);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #6b6b6b;
-  position: relative;
+  font-family: "Roboto", sans-serif;
+  background-color: #fff;
+  color: #808080;
+  box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 10%);
   border-radius: 3px;
   overflow: hidden;
 }
 
-.tour-stars {
-  position: absolute;
-  top: 1rem;
-  left: 1.5rem;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
+.tour-header {
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+  overflow: hidden;
 }
 
 .tour-img {
-  position: relative;
-  height: 16rem;
-  margin-bottom: 2rem;
-}
-
-.tour-img img {
   width: 100%;
-  height: 100%;
-  clip-path: polygon(0 0, 100% 0, 100% 88%, 0% 100%);
+  display: block;
 }
 
-.img-linear-bg {
-  display: inline-block;
+.image-overlay {
   position: absolute;
-  /* background-blend-mode: screen; */
-  top: 0;
-  left: 0;
-  height: 100%;
   width: 100%;
+  height: 100%;
   background-image: linear-gradient(
-    rgba(39, 174, 95, 0.5),
-    rgba(22, 160, 132, 0.5)
+    rgba(22, 160, 132, 0.445),
+    rgba(46, 204, 112, 0.445)
   );
-
-  clip-path: polygon(0 0, 100% 0, 100% 88%, 0% 100%);
+  /* background-blend-mode: saturation; */
 }
 
-.detail-list {
-  display: grid;
-  list-style: none;
-  font-size: 1.3rem;
-  margin-bottom: 2rem;
-  gap: 1.5rem;
-}
-
-.tour-detail-list-item {
-  display: flex;
-  gap: 2rem;
-  font-size: 1.2rem;
-  border-bottom: 1px solid #6b6b6b25;
-  padding-bottom: 0.8rem;
-}
-
-.far {
-  color: #16a085;
-}
-
-.fa-star {
-  color: #fff;
-}
-
-.tour-details {
-  max-width: 50%;
+.tour-content {
+  padding: 1rem 2rem;
+  position: relative;
 }
 
 .tour-title {
   position: absolute;
+  color: #fff;
+  background-image: linear-gradient(
+    rgba(22, 160, 132, 0.8),
+    rgba(46, 204, 112, 0.8)
+  );
+  top: -5rem;
   right: 0;
-  bottom: 0rem;
-  width: 70%;
-  font-size: 1.7rem;
-  line-height: 2rem;
-  color: #fff;
-  text-transform: uppercase;
-  font-weight: 200;
-  text-align: right;
-  padding-right: 1rem;
-  background-image: linear-gradient(#27ae60, rgba(22, 160, 132));
-}
-
-.tour-bottom-details {
-  width: 100%;
-  text-align: center;
-  background-image: linear-gradient(#27ae60, rgba(22, 160, 132));
+  font-size: 1.5rem;
   padding: 1rem 1rem;
-  color: #fff;
-  clip-path: polygon(0 16%, 100% 0%, 100% 100%, 0% 100%);
+  font-weight: 300;
+  width: 65%;
+  text-align: right;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
+.tour-content-fact {
+  font-size: 0.9rem;
+}
+
+.tour-icons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.tour-content-icon {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.tour-content-icon p {
+  font-weight: 300;
+  font-size: 0.8rem;
+}
+
+.tour-content-info {
+  font-weight: 300;
+  font-size: 1rem;
+  margin: 1.5rem 0rem;
+  font-style: italic;
+}
+
+.far {
+  color: #27ae60;
+}
+
+.tour-footer {
+  background-color: #f0f0f0;
+  padding: 2rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+}
+
+.tour-ratings {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.tour-rating span,
 .tour-price span {
-  display: inline-block;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   font-weight: 200;
-  margin: 1rem 0rem;
 }
 
-.tour-price p {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.tour-detail-btn {
+.tour-link {
   display: inline-block;
   text-decoration: none;
-  color: #6b6b6b;
-  background-color: #fff;
+  color: #fff;
+  background-color: #27ae60;
   padding: 0.8rem 2rem;
   border-radius: 50px;
-  position: relative;
+  font-weight: 300;
+  transition: all 0.2s;
 }
 
-.tour-detail-btn::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: inherit;
-  border-radius: inherit;
-  z-index: -1;
+.tour-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgb(0 0 0 / 15%);
 }

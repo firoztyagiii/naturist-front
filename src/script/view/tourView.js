@@ -3,46 +3,48 @@ export class TourView {
     this.tourContainer = document.querySelector(".tour-container");
   }
   generateMarkup(tour) {
-    const markup = `<div class="tour">
-    <div class="tour-stars">
-      <i class="far fa-star"></i>
-      <i class="far fa-star"></i>
-      <i class="far fa-star"></i>
-      <i class="far fa-star"></i>
-      <i class="far fa-star"></i>
+    const markup = ` <div class="tour">
+    <div class="tour-header">
+      <span class="image-overlay"></span>
+      <img src="./src/img/biking.jpg" alt="" class="tour-img">
     </div>
-    <div class="tour-img">
-      <img src="./src/img/img.jpg" alt="">
-      <span class="img-linear-bg"></span>
+    <div class="tour-content">
       <p class="tour-title">${tour.name}</p>
-    </div>
-    <div class="tour-details">
-      <ul class="detail-list">
-        <li class="tour-detail-list-item">
-          <i class="far fa-flag"></i>
-        <p>${tour.location}</p>
-        </li>
-        <li class="tour-detail-list-item">
+      <p class="tour-content-fact">${tour.difficulty.toUpperCase()} ${
+      tour.tourLength
+    } Days </p>
+      <p class="tour-content-info">${tour.info}
+      </p>
+      <div class="tour-icons">
+        <div class="tour-content-icon">
+          <i class="far fa-map"></i>
+          <p>${tour.location}</p>
+        </div>
+        <div class="tour-content-icon">
+          <i class="far fa-calendar"></i>
+          <p>June 2022</p>
+        </div>
+        <div class="tour-content-icon">
           <i class="far fa-user"></i>
           <p>${tour.groupSize}</p>
-        </li>
-        <li class="tour-detail-list-item">
-          <i class="far fa-clock"></i>
-          <p>${tour.tourLength}</p>
-        </li>
-        <li class="tour-detail-list-item">
-          <i class="far fa-calendar-alt"></i>
-          <p>${new Date(tour.dates[0]).getFullYear()}</p>
-        </li>
-      </ul>
-    </div>
-      <div class="tour-bottom-details">
-        <div class="tour-price">
-          <span>Only</span>
-          <p>$${tour.price}</p>
         </div>
-        <a href="#" class="tour-detail-btn">Details</a>
+        <div class="tour-content-icon">
+          <i class="far fa-hourglass"></i>
+          <p>${tour.tourLength}</p>
+        </div>
       </div>
+    </div>
+    <div class="tour-footer">
+      <div class="tour-ratings">
+        <p class="tour-price">$${tour.price} <span>per person</span></p>
+        <div class="tour-rating">${tour.averageRatings} <span>rating (${
+      tour.totalRatings
+    })</span></div>
+      </div>
+      <div class="tour-btn">
+        <a href="/tour-detail/?id=${tour._id}" class="tour-link">Details</a>
+      </div>
+    </div>
   </div>`;
     this.tourContainer.insertAdjacentHTML("afterbegin", markup);
   }

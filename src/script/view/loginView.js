@@ -1,4 +1,4 @@
-export class LoginElements {
+export class LoginView {
   constructor() {
     this.loginBtn = document.querySelector(".login-btn");
   }
@@ -21,5 +21,8 @@ export class LoginElements {
     const loader = document.querySelector(".loader");
     loginBtnText.classList.remove("hidden");
     loader.classList.add("hidden");
+  }
+  resetInput() {
+    const password = (document.getElementById("password").value = "");
   }
 }
