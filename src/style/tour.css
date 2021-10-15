@@ -1,125 +1,144 @@
-.tour {
-  display: grid;
-  grid-template-columns: 60% 1fr;
-  box-shadow: 0 0 88px 0 rgba(0, 0, 0, 0.555);
-  color: #464646;
-  margin: 8rem 0rem;
-}
-
 .tour-container {
-  max-width: 70%;
-  margin: 0 auto;
-}
-
-.tour-left {
-  position: relative;
-}
-
-.tour-img {
-  width: 100%;
-  display: block;
-  height: 100%;
-}
-
-.tour-img-gradient {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(#27ae5f77, #16a08473);
-}
-
-.tour-right {
-  transform: scale(1.2);
-  padding: 2rem 1rem;
-  border-radius: 2px;
-  background-color: #fff;
-}
-
-.tour-ratings {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 1.2rem;
-}
-
-.tour-img {
-  display: block;
-  width: 100%;
-}
-
-.far {
-  color: #fff;
-  font-size: 0.85rem;
-  stroke: #fff;
-}
-
-.tour-title {
-  font-size: 1.5rem;
-  margin-bottom: 1.2rem;
-}
-
-.tour-info {
+  max-width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  row-gap: 1.2rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3rem;
+  justify-items: center;
+  margin: 6rem 0rem;
 }
 
-.tour-info-box {
+.tour {
+  max-width: 90%;
+  box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 15%);
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 1rem;
-}
-
-.tour-description {
-  font-size: 0.8rem;
-  padding: 1.2rem 0rem;
-  line-height: 1.5rem;
-}
-
-.tour-btn {
-  text-align: center;
-}
-
-.tour-link {
-  display: inline-block;
-  padding: 0.7rem 3rem;
-  border: 2px solid #27ae60;
-  color: #27ae60;
-  text-decoration: none;
+  color: #6b6b6b;
   position: relative;
+  border-radius: 3px;
   overflow: hidden;
 }
 
-.tour-link:hover {
-  color: #fff;
+.tour-stars {
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
 }
 
-.tour-link::after {
-  content: "";
-  background-color: #27ae60;
+.tour-img {
+  position: relative;
+  height: 16rem;
+  margin-bottom: 2rem;
+}
+
+.tour-img img {
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 0% 100%);
+}
+
+.img-linear-bg {
+  display: inline-block;
   position: absolute;
+  /* background-blend-mode: screen; */
+  top: 0;
+  left: 0;
   height: 100%;
   width: 100%;
-  top: 0;
-  left: -100%;
-  transition: all 0.3s;
-  z-index: -1;
+  background-image: linear-gradient(
+    rgba(39, 174, 95, 0.5),
+    rgba(22, 160, 132, 0.5)
+  );
+
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 0% 100%);
 }
 
-.tour-link:hover.tour-link::after {
-  left: 0;
+.detail-list {
+  display: grid;
+  list-style: none;
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  gap: 1.5rem;
+}
+
+.tour-detail-list-item {
+  display: flex;
+  gap: 2rem;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #6b6b6b25;
+  padding-bottom: 0.8rem;
 }
 
 .far {
-  color: #27ae60;
+  color: #16a085;
 }
 
-.tour-price {
-  font-size: 1.3rem;
-  color: #27ae60;
+.fa-star {
+  color: #fff;
 }
 
-.dollar {
-  font-size: 1.5rem;
+.tour-details {
+  max-width: 50%;
+}
+
+.tour-title {
+  position: absolute;
+  right: 0;
+  bottom: 0rem;
+  width: 70%;
+  font-size: 1.7rem;
+  line-height: 2rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 200;
+  text-align: right;
+  padding-right: 1rem;
+  background-image: linear-gradient(#27ae60, rgba(22, 160, 132));
+}
+
+.tour-bottom-details {
+  width: 100%;
+  text-align: center;
+  background-image: linear-gradient(#27ae60, rgba(22, 160, 132));
+  padding: 1rem 1rem;
+  color: #fff;
+  clip-path: polygon(0 16%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.tour-price span {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 200;
+  margin: 1rem 0rem;
+}
+
+.tour-price p {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.tour-detail-btn {
+  display: inline-block;
+  text-decoration: none;
+  color: #6b6b6b;
+  background-color: #fff;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  position: relative;
+}
+
+.tour-detail-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  border-radius: inherit;
+  z-index: -1;
 }
