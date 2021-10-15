@@ -4,17 +4,27 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Naturist | Login</title>
-    <link rel="stylesheet" href="./src/style/signup.css" />
+    <title>Naturist | Signup</title>
     <link rel="icon" href="./src/img/favicon.ico" type="image/x-icon" />
-    <script src="./script/script.js" defer></script>
+    <link rel="stylesheet" href="./src/style/signup.css" />
+    <link rel="stylesheet" href="./src/style/main.css" />
+    <script src="./src/script/app.js" defer></script>
   </head>
   <body>
     <div class="container">
+      <div class="popup">OTP has been sent to your email address</div>
+      <div class="bg hidden">
+        <div class="lds-ring">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
       <header class="header">
         <nav class="nav">
           <a href="./index.html" class="logo">Naturist</a>
-          <ul class="list">
+          <ul class="user-not-loggedin list">
             <li class="list-item">
               <a href="" class="list-item-link">Tour</a>
             </li>
@@ -30,6 +40,30 @@
               >
             </li>
           </ul>
+          <ul class="list user-loggedin hidden">
+            <li class="list-item">
+              <a href="" class="list-item-link">Tour</a>
+            </li>
+            <li class="list-item">
+              <a href="" class="list-item-link">About Me</a>
+            </li>
+
+            <li class="list-item user-info">
+              <a href="./signup.html" class="list-item-link user-name"
+                >Welcome</a
+              >
+              <div class="user-info-options">
+                <ul>
+                  <li>
+                    <a href="">Dashboard</a>
+                  </li>
+                  <li>
+                    <a href="">Logout</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
         </nav>
       </header>
       <section class="login">
@@ -37,6 +71,15 @@
           <form class="form">
             <div class="form-container">
               <p class="form-title">Create Account</p>
+              <div class="name-input">
+                <label for="name" class="name">Your Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  placeholder="Your Name"
+                  name="name"
+                />
+              </div>
               <div class="email-input">
                 <label for="email" class="email">Email</label>
                 <input
@@ -55,15 +98,15 @@
                   name="password"
                 />
               </div>
-              <div class="password-input">
-                <label for="confirm-password" class="password"
+              <div class="confirm-password-input">
+                <label for="confirm-password" class="confirm-password"
                   >Confirm Password</label
                 >
                 <input
                   type="password"
-                  id="password"
+                  id="confirm-password"
                   placeholder="*******"
-                  name="confirm-password"
+                  name="confirmPassword"
                 />
               </div>
               <div class="form-links">
@@ -71,7 +114,10 @@
                   >Forgot Password?</a
                 >
               </div>
-              <button class="signup-btn" type="button">Sign Up</button>
+              <button class="signup-btn" type="button">
+                <span class="signup-btn-text">Sign Up</span>
+                <div class="loader hidden"></div>
+              </button>
             </div>
           </form>
         </div>

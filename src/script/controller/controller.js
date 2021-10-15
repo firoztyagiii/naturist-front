@@ -3,10 +3,14 @@ import { IndexView } from "../view/indexView";
 import { callAPI } from "../model/model";
 import { Spinner } from "../view/spinner";
 import { TourView } from "../view/tourView";
+import { SignupView } from "../view/signupView";
+import { Popup } from "../view/popup";
 
 const loginElements = new LoginElements();
 const indexViewElements = new IndexView();
 const spinner = new Spinner();
+const signupView = new SignupView();
+const popup = new Popup();
 
 const isUserLoggedIn = async () => {
   try {
@@ -59,9 +63,36 @@ const fetchTours = async () => {
   });
 };
 
+const signUp = async () => {
+  signupView.updateUI();
+  const input = signupView.getInputs();
+  const response = await callAPI("/api/user/signup", "POST", input);
+  if (response.data) popup.showPopup(response.data.message);
+  else popup.showPopup(response.message);
+  signupView.resetInput();
+  setTimeout(() => {
+    popup.hidePopup();
+  }, 3000);
+  signupView.defaultUI();
+};
+
 const init = async () => {
   try {
-    spinner.showSpinner();
+    if (window.location.pathname === "/activate-account.html") {
+      const verifyToken = window.location.search.split("=")[1];
+      const response = await callAPI(
+        `/api/user/activate-account?verify=${verifyToken}`,
+        "GET"
+      );
+
+      if (response.status === "success") {
+        window.location.href = "/login.html";
+      } else {
+        document.write(response.message);
+      }
+    } else {
+      spinner.showSpinner();
+    }
     if (loginElements.loginBtn) {
       loginElements.loginBtn.addEventListener("click", login);
     }
@@ -69,7 +100,13 @@ const init = async () => {
     if (window.location.pathname == "/tours.html") {
       await fetchTours();
     }
-    indexViewElements.getlogoutBtn().addEventListener("click", logoutBtnCall);
+    if (indexViewElements.getlogoutBtn()) {
+      indexViewElements.getlogoutBtn().addEventListener("click", logoutBtnCall);
+    }
+
+    if (window.location.pathname == "/signup.html") {
+      signupView.signupbtn.addEventListener("click", signUp);
+    }
   } catch (err) {
     console.log(err);
   }
