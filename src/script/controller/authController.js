@@ -51,6 +51,11 @@ export const checkForPageType = async (fetchTours, signUp, login, logout) => {
   //Add login Event for login page
   if (window.location.pathname == "/login.html") {
     const loginView = new LoginView();
+    userLoggedIn &&
+      popup.showPopup("You are already logged in!") &&
+      popup.hidePopup() &&
+      console.log("dajsdjksabdkh") &&
+      loginView.disableLoginBtn();
     loginView.loginBtn.addEventListener("click", function () {
       login(loginView);
     });
@@ -73,13 +78,6 @@ export const checkForPageType = async (fetchTours, signUp, login, logout) => {
       signUp(signupView);
     });
   }
-
-  //Add logout event
-  // if (indexView.getlogoutBtn()) {
-  //   indexView.getlogoutBtn().addEventListener("click", function () {
-  //     logout(indexView);
-  //   });
-  // }
 
   if (window.location.pathname == "/dashboard.html") {
     spinner.showSpinner();

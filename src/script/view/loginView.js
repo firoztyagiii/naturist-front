@@ -25,4 +25,7 @@ export class LoginView {
   resetInput() {
     const password = (document.getElementById("password").value = "");
   }
+  disableLoginBtn() {
+    this.loginBtn.disabled = true;
+  }
 }
