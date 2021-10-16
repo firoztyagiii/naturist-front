@@ -6,9 +6,6 @@ export const userLoggedIn = window.localStorage.getItem("userLoggedIn");
 export const callAPI = async (url, type, payload) => {
   const fetchConfig = {
     method: type,
-    headers: {
-      "Content-Type": "application/json",
-    },
     credentials: "include",
   };
 
