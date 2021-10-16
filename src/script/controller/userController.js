@@ -1,12 +1,7 @@
-import { LoginView } from "../view/loginView";
-import { IndexView } from "../view/indexView";
-import { SignupView } from "../view/signupView";
 import { Spinner } from "../view/spinner";
 import { Popup } from "../view/popup";
+import { callAPI } from "../model/model";
 
-// const loginView = new LoginView();
-const indexView = new IndexView();
-const signupView = new SignupView();
 const spinner = new Spinner();
 const popup = new Popup();
 
@@ -29,8 +24,7 @@ export const login = async (loginView) => {
   }
 };
 
-export const logout = async () => {
-  console.log("logging out");
+export const logout = async (indexView) => {
   try {
     spinner.showSpinner();
     await callAPI("/api/user/logout", "GET");
@@ -42,7 +36,7 @@ export const logout = async () => {
   }
 };
 
-export const signUp = async () => {
+export const signUp = async (signupView) => {
   signupView.updateUI();
   const input = signupView.getInputs();
   const response = await callAPI("/api/user/signup", "POST", input);

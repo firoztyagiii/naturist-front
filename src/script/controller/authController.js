@@ -3,9 +3,10 @@ import { Spinner } from "../view/spinner";
 import { LoginView } from "../view/loginView";
 import { IndexView } from "../view/indexView";
 import { Popup } from "../view/popup";
+import { SignupView } from "../view/signupView";
+import { TourView } from "../view/tourView";
 
 const spinner = new Spinner();
-const loginView = new LoginView();
 const indexView = new IndexView();
 const popup = new Popup();
 
@@ -42,7 +43,8 @@ export const checkForPageType = async (fetchTours, signUp, login, logout) => {
 
   //Fetch tours if your on Tours page
   if (window.location.pathname == "/tours.html") {
-    await fetchTours();
+    const tourView = new TourView();
+    await fetchTours(tourView);
   }
 
   //Add login Event for login page
@@ -55,12 +57,17 @@ export const checkForPageType = async (fetchTours, signUp, login, logout) => {
 
   //Add Sign up event for sign up page
   if (window.location.pathname == "/signup.html") {
-    signupView.signupbtn.addEventListener("click", signUp);
+    const signupView = new SignupView();
+    signupView.signupbtn.addEventListener("click", function () {
+      signUp(signupView);
+    });
   }
 
   //Add logout event
   if (indexView.getlogoutBtn()) {
-    indexView.getlogoutBtn().addEventListener("click", logout);
+    indexView.getlogoutBtn().addEventListener("click", function () {
+      logout(indexView);
+    });
   }
 };
 
