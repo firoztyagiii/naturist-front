@@ -1,10 +1,11 @@
-import { callAPI } from "../model/model";
+import { callAPI, userLoggedIn, userData } from "../model/model";
 import { Spinner } from "../view/spinner";
 import { LoginView } from "../view/loginView";
 import { IndexView } from "../view/indexView";
 import { Popup } from "../view/popup";
 import { SignupView } from "../view/signupView";
 import { TourView } from "../view/tourView";
+import { DashboardView } from "../view/dashboardView";
 
 const spinner = new Spinner();
 const indexView = new IndexView();
@@ -55,6 +56,16 @@ export const checkForPageType = async (fetchTours, signUp, login, logout) => {
     });
   }
 
+  if (
+    window.location.pathname == "/login.html" &&
+    window.location.search === "?notLoggedIn=true"
+  ) {
+    setTimeout(() => {
+      popup.showPopup("You are not logged in! Please log in.");
+      popup.hidePopup();
+    }, 500);
+  }
+
   //Add Sign up event for sign up page
   if (window.location.pathname == "/signup.html") {
     const signupView = new SignupView();
@@ -64,11 +75,25 @@ export const checkForPageType = async (fetchTours, signUp, login, logout) => {
   }
 
   //Add logout event
-  if (indexView.getlogoutBtn()) {
-    indexView.getlogoutBtn().addEventListener("click", function () {
-      logout(indexView);
-    });
+  // if (indexView.getlogoutBtn()) {
+  //   indexView.getlogoutBtn().addEventListener("click", function () {
+  //     logout(indexView);
+  //   });
+  // }
+
+  if (window.location.pathname == "/dashboard.html") {
+    spinner.showSpinner();
+    const dashboardView = new DashboardView();
+    if (!userLoggedIn) {
+      dashboardView.notLoggedIn();
+    } else {
+      dashboardView.setInput(userData);
+      dashboardView.getLogoutBtn().addEventListener("click", function () {
+        logout(indexView);
+      });
+    }
   }
+  // spinner.hideSpinner();
 };
 
 export const isUserLoggedIn = async () => {
@@ -76,6 +101,8 @@ export const isUserLoggedIn = async () => {
     const user = await callAPI("/api/user/about-me", "GET");
     if (user.status === "success") {
       indexView.updateUI(user);
+      window.localStorage.setItem("userData", JSON.stringify(user.data));
+      window.localStorage.setItem("userLoggedIn", true);
     }
     spinner.hideSpinner();
   } catch (err) {

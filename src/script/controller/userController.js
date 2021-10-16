@@ -29,6 +29,10 @@ export const logout = async (indexView) => {
     spinner.showSpinner();
     await callAPI("/api/user/logout", "GET");
     indexView.defaultUI();
+
+    window.localStorage.removeItem("userData");
+    window.localStorage.removeItem("userLoggedIn");
+
     window.location.href = "/";
     spinner.hideSpinner();
   } catch (err) {
