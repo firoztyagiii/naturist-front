@@ -6,20 +6,25 @@ const popup = new Popup();
 
 const call = async (email) => {
   const response = await callAPI("/api/user/forgot-password", "POST", email);
+  console.log(response);
   if (response.status === "Fail") {
     popup.showPopup(response.message);
     popup.hidePopup();
   } else {
+    popup.showPopup(response.message);
+    popup.hidePopup();
   }
 };
 
 export const forgotPasswordController = async () => {
   if (window.location.pathname == "/forgot-password.html") {
-    const resetBtn = document.querySelector(".reset-btn");
     const forgotPasswordView = new ForgotPasswordView();
-    resetBtn.addEventListener("click", async function () {
+
+    forgotPasswordView.resetBtn.addEventListener("click", async function () {
+      forgotPasswordView.updateUI();
       const email = forgotPasswordView.getInput();
       await call(email);
+      forgotPasswordView.defaultUI();
     });
   }
 };

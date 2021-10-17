@@ -8,6 +8,7 @@ const popup = new Popup();
 export const login = async (loginView) => {
   try {
     const input = loginView.getLoginInputs();
+    console.log(input);
     loginView.updateUI();
     const response = await callAPI("/api/user/login", "POST", input);
     if (response.status === "Fail") {
