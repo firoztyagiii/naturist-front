@@ -1,6 +1,7 @@
 import { ForgotPasswordView } from "../view/forgotPasswordView";
 import { callAPI } from "../model/model";
 import { Popup } from "../view/popup";
+import { Spinner } from "../view/spinner";
 
 const popup = new Popup();
 
@@ -17,6 +18,7 @@ const call = async (email) => {
 
 export const forgotPasswordController = async () => {
   if (window.location.pathname == "/forgot-password.html") {
+    const spinner = new Spinner();
     const forgotPasswordView = new ForgotPasswordView();
     forgotPasswordView.resetBtn.addEventListener("click", async function () {
       forgotPasswordView.updateUI();
@@ -24,5 +26,6 @@ export const forgotPasswordController = async () => {
       await call(email);
       forgotPasswordView.defaultUI();
     });
+    spinner.hideSpinner();
   }
 };

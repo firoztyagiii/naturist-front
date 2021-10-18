@@ -5,9 +5,12 @@ const spinner = new Spinner();
 
 export const accountActivationController = async () => {
   if (window.location.pathname === "/activate-account.html") {
-    const verifyToken = window.location.search.split("=")[1];
+    const token = window.location.search.split("=")[1];
+    if (!token) {
+      return (window.location.href = "/");
+    }
     const response = await callAPI(
-      `/api/user/activate-account?verify=${verifyToken}`,
+      `/api/user/activate-account?verify=${token}`,
       "GET"
     );
 
@@ -16,7 +19,5 @@ export const accountActivationController = async () => {
     } else {
       document.write(response.message);
     }
-  } else {
-    spinner.showSpinner();
   }
 };

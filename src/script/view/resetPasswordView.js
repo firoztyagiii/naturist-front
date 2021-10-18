@@ -12,4 +12,17 @@ export class ResetPasswordView {
       confirmPassword: confirmPassword.toString(),
     };
   }
+  updateUI() {
+    const loginBtnText = document.querySelector(".reset-btn-text");
+    const loader = document.querySelector(".loader");
+    loginBtnText.classList.add("hidden");
+    loader.classList.remove("hidden");
+  }
+
+  defaultUI() {
+    const loginBtnText = document.querySelector(".reset-btn-text");
+    const loader = document.querySelector(".loader");
+    loginBtnText.classList.remove("hidden");
+    loader.classList.add("hidden");
+  }
 }

@@ -7,8 +7,8 @@ const popup = new Popup();
 
 export const login = async (loginView) => {
   try {
-    const input = loginView.getLoginInputs();
     loginView.updateUI();
+    const input = loginView.getLoginInputs();
     const response = await callAPI("/api/user/login", "POST", input);
     if (response.status === "Fail") {
       loginView.defaultUI();
@@ -29,7 +29,6 @@ export const login = async (loginView) => {
 
 export const logout = async (indexView) => {
   try {
-    spinner.showSpinner();
     await callAPI("/api/user/logout", "GET");
     indexView.defaultUI();
 

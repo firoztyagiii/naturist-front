@@ -1,8 +1,10 @@
 import { Popup } from "../view/popup";
 import { LoginView } from "../view/loginView";
 import { login } from "./userController";
+import { Spinner } from "../view/spinner";
 
 const popup = new Popup();
+const spinner = new Spinner();
 
 export const loginController = () => {
   if (
@@ -17,10 +19,12 @@ export const loginController = () => {
 
   //Add login Event for login page
   if (window.location.pathname == "/login.html") {
+    spinner.showSpinner();
     const loginView = new LoginView();
     loginView.loginBtn.addEventListener("click", function () {
       login(loginView);
     });
+    spinner.hideSpinner();
   }
 
   if (
