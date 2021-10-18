@@ -2,11 +2,10 @@ export class DashboardView {
   constructor() {}
 
   setInput(user) {
-    const currentUser = JSON.parse(user);
     const accountName = document.getElementById("account-name");
-    accountName.value = currentUser.user.name;
+    accountName.value = user.name;
     const accountEmail = document.getElementById("account-email");
-    accountEmail.value = currentUser.user.email;
+    accountEmail.value = user.email;
   }
   notLoggedIn() {
     window.location.href = "/login.html?notLoggedIn=true";

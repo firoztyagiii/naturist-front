@@ -8,7 +8,6 @@ const popup = new Popup();
 export const login = async (loginView) => {
   try {
     const input = loginView.getLoginInputs();
-    console.log(input);
     loginView.updateUI();
     const response = await callAPI("/api/user/login", "POST", input);
     if (response.status === "Fail") {
@@ -17,6 +16,9 @@ export const login = async (loginView) => {
       popup.showPopup(response.message);
       popup.hidePopup();
     } else {
+      const user = await callAPI("/api/user/about-me", "GET");
+      window.sessionStorage.setItem("user", JSON.stringify(user));
+      window.sessionStorage.setItem("isUserLoggedIn", true);
       loginView.defaultUI();
       window.location.href = "/";
     }
@@ -31,8 +33,8 @@ export const logout = async (indexView) => {
     await callAPI("/api/user/logout", "GET");
     indexView.defaultUI();
 
-    window.localStorage.removeItem("userData");
-    window.localStorage.removeItem("userLoggedIn");
+    window.sessionStorage.setItem("isUserLoggedIn", false);
+    window.sessionStorage.setItem("user", false);
 
     window.location.href = "/";
     spinner.hideSpinner();

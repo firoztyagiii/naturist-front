@@ -1,3 +1,7 @@
+import { Spinner } from "./spinner";
+
+const spinner = new Spinner();
+
 export class IndexView {
   constructor() {
     this.navBarList = document.querySelector(".list");
@@ -10,6 +14,7 @@ export class IndexView {
     username.innerText = `Welcome, ${userData.data.user.name.split(" ")[0]}`;
     initNavbar.classList.add("hidden");
     toShowNavBar.classList.remove("hidden");
+    spinner.hideSpinner();
   }
 
   defaultUI() {

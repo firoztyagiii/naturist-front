@@ -1,7 +1,9 @@
 const _DOMAIN = "http://localhost:9090";
 
-export const userData = window.localStorage.getItem("userData");
-export const userLoggedIn = window.localStorage.getItem("userLoggedIn");
+export let isUserLoggedIn = JSON.parse(
+  window.sessionStorage.getItem("isUserLoggedIn")
+);
+export let user = JSON.parse(window.sessionStorage.getItem("user"));
 
 export const callAPI = async (url, type, payload) => {
   const fetchConfig = {
