@@ -18,6 +18,8 @@
   </head>
   <body>
     <div class="container">
+      <div class="popup">OTP has been sent to your email address</div>
+
       <div class="bg hidden">
         <div class="lds-ring">
           <div></div>
@@ -121,7 +123,7 @@
                       >
                       <input
                         id="current-password"
-                        type="text"
+                        type="password"
                         name="current-password"
                         placeholder="********"
                       />
@@ -132,7 +134,7 @@
                       >
                       <input
                         id="new-password"
-                        type="text"
+                        type="password"
                         name="new-password"
                         placeholder="********"
                       />
@@ -145,12 +147,15 @@
                       >
                       <input
                         id="confirm-new-password"
-                        type="confirm-new-password"
+                        type="password"
                         name="confirm-new-password"
                         placeholder="********"
                       />
                     </div>
-                    <a href="" class="password-save-btn">Save</a>
+                    <a href="" class="password-save-btn">
+                      <span class="password-save-text">Save</span>
+                      <div class="loader hidden"></div>
+                    </a>
                   </form>
                 </div>
               </div>

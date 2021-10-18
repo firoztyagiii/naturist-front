@@ -7,16 +7,14 @@ import { isUserLoggedIn, user } from "../model/model";
 import { IndexView } from "../view/indexView";
 import { Spinner } from "../view/spinner";
 import { tourController } from "./tourController";
+import { checkLogin } from "./authController";
 
 const spinner = new Spinner();
 
 const init = async () => {
   try {
     spinner.showSpinner();
-    if (isUserLoggedIn) {
-      const indexView = new IndexView(spinner);
-      indexView.updateUI(user);
-    }
+    await checkLogin();
     tourController();
     forgotPasswordController();
     resetPasswordController();
