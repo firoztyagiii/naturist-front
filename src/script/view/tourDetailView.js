@@ -8,7 +8,7 @@ export class TourDetailView {
         <i class="far fa-bookmark"></i>
         <div class="tour-info">
         <div class="tour-title">
-        <span>${tour.name}</span>
+        <span>${tour.name.toUpperCase()}</span>
 
         </div>
             <div class="tour-info-details">
@@ -35,7 +35,7 @@ export class TourDetailView {
             <div class="tour-facts-item">
               <i class="far fa-chart-bar"></i>
               <span>Difficulty</span>
-              <p>${tour.difficulty}</p>
+              <p>${tour.difficulty.toUpperCase()}</p>
             </div>
             <div class="tour-facts-item">
               <i class="far fa-user"></i>
@@ -70,6 +70,11 @@ export class TourDetailView {
 
     this.tourContainer.innerHTML = "";
     this.tourContainer.insertAdjacentHTML("afterbegin", markup);
+    const tourImg = document.querySelector(".tour");
+    tourImg.style.backgroundImage = `linear-gradient(
+      rgba(22, 160, 132, 0.8),
+      rgba(46, 204, 112, 0.8)
+    ), url("http://localhost:9090/${tour.headImg}")`;
 
     const tourReviewContainer = document.querySelector(".tour-review");
 
@@ -92,6 +97,6 @@ export class TourDetailView {
       </div>`;
     });
     tourReviewContainer.insertAdjacentHTML("afterbegin", reviews.join("\n"));
-    document.querySelector(".review-ratings").nextElementSibling.remove();
+    // document.querySelector(".review-ratings").nextElementSibling.remove();
   }
 }
