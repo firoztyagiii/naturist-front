@@ -31,10 +31,6 @@ export const logout = async (indexView) => {
   try {
     await callAPI("/api/user/logout", "GET");
     indexView.defaultUI();
-
-    window.sessionStorage.setItem("isUserLoggedIn", false);
-    window.sessionStorage.setItem("user", false);
-
     window.location.href = "/";
     spinner.hideSpinner();
   } catch (err) {
@@ -51,4 +47,22 @@ export const signUp = async (signupView) => {
   signupView.resetInput();
   popup.hidePopup();
   signupView.defaultUI();
+};
+
+export const updatePassword = async (input) => {
+  const response = await callAPI("/api/user/update-me/password", "POST", input);
+  popup.showPopup(response.message);
+  popup.hidePopup();
+};
+
+export const updateName = async (input) => {
+  const response = await callAPI("/api/user/update-me/info", "POST", input);
+  popup.showPopup(response.message);
+  popup.hidePopup();
+};
+
+export const updateEmail = async (input) => {
+  const response = await callAPI("/api/user/update-me/email", "POST", input);
+  popup.showPopup(response.message);
+  popup.hidePopup();
 };

@@ -8,6 +8,8 @@ import { IndexView } from "../view/indexView";
 import { Spinner } from "../view/spinner";
 import { tourController } from "./tourController";
 import { checkLogin } from "./authController";
+import { updateEmailController } from "./updateEmailController";
+import { signUpController } from "./signUpController";
 
 const spinner = new Spinner();
 
@@ -15,12 +17,14 @@ const init = async () => {
   try {
     spinner.showSpinner();
     await checkLogin();
+    await accountActivationController();
     tourController();
     forgotPasswordController();
     resetPasswordController();
     dashBoardController();
     loginController();
-    accountActivationController();
+    signUpController();
+    updateEmailController();
     spinner.hideSpinner();
   } catch (err) {
     console.log(err);

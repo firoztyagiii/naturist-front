@@ -1,7 +1,4 @@
 import { callAPI } from "../model/model";
-import { Spinner } from "../view/spinner";
-
-const spinner = new Spinner();
 
 export const accountActivationController = async () => {
   if (window.location.pathname === "/activate-account.html") {

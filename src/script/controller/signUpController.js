@@ -1,4 +1,5 @@
 import { SignupView } from "../view/signupView";
+import { signUp } from "./userController";
 
 export const signUpController = () => {
   if (window.location.pathname == "/signup.html") {

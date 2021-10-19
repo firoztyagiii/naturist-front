@@ -2,21 +2,32 @@ import { DashboardView } from "../view/dashboardView";
 import { logout } from "./userController";
 import { Spinner } from "../view/spinner";
 import { IndexView } from "../view/indexView";
-import { user } from "../model/model";
-import { callAPI } from "../model/model";
-import { Popup } from "../view/popup";
+import { userData } from "../model/model";
 import { isLoggedIn } from "./authController";
+import { updatePassword, updateName, updateEmail } from "./userController";
 
-const call = async (input) => {
-  const response = await callAPI("/api/user/update-me/password", "POST", input);
-  const popup = new Popup();
-  popup.showPopup(response.message);
-  popup.hidePopup();
-  // if (response.status === "success") {
-  //   setTimeout(async () => {
-  //     await logout(new IndexView());
-  //   }, 2000);
-  // }
+const passwordUpdateHandler = async (e, dashboardView) => {
+  e.preventDefault();
+  dashboardView.updatePasswordBtnUI();
+  const input = dashboardView.getPasswordInput();
+  await updatePassword(input);
+  dashboardView.resetPasswordBtnUI();
+};
+
+const nameUpdateHandler = async (e, dashboardView) => {
+  e.preventDefault();
+  dashboardView.updateNameBtnUI();
+  const input = dashboardView.getNameInput();
+  await updateName(input);
+  dashboardView.resetNameBtnUI();
+};
+
+const emailUpdateHandler = async (e, dashboardView) => {
+  e.preventDefault();
+  dashboardView.updateEmailBtnUI();
+  const input = dashboardView.getEmailInput();
+  await updateEmail(input);
+  dashboardView.resetEmailBtnUI();
 };
 
 export const dashBoardController = () => {
@@ -24,21 +35,34 @@ export const dashBoardController = () => {
     if (!isLoggedIn) {
       return (window.location.href = "/login.html?notLoggedIn=true");
     }
+
     const spinner = new Spinner();
     const dashboardView = new DashboardView();
-    const indexView = new IndexView();
-    // dashboardView.setInput(user);
-    dashboardView.getLogoutBtn().addEventListener("click", function () {
-      spinner.showSpinner();
-      logout(indexView);
+
+    dashboardView.setInput(userData);
+
+    //EVENT LISTENERS
+
+    dashboardView.passwordUpdateBtn.addEventListener(
+      "click",
+      async function (e) {
+        passwordUpdateHandler(e, dashboardView);
+      }
+    );
+
+    dashboardView.logoutBtn.addEventListener("click", async function () {
+      const indexView = new IndexView();
+      await logout(indexView);
     });
-    dashboardView.passwordSaveBtn.addEventListener("click", async function (e) {
-      e.preventDefault();
-      dashboardView.updateUI();
-      const input = dashboardView.getChangePasswordInput();
-      await call(input);
-      dashboardView.defaultUI();
+
+    dashboardView.nameUpdateBtn.addEventListener("click", async function (e) {
+      nameUpdateHandler(e, dashboardView);
     });
+
+    dashboardView.emailUpdateBtn.addEventListener("click", async function (e) {
+      emailUpdateHandler(e, dashboardView);
+    });
+
     spinner.hideSpinner();
   }
 };

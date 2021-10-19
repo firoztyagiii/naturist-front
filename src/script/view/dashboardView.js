@@ -1,8 +1,9 @@
 export class DashboardView {
   constructor() {
-    this.passwordSaveBtn = document.querySelector(".password-save-btn");
-    this.loader = document.querySelector(".loader");
-    this.passwordText = document.querySelector(".password-save-text");
+    this.passwordUpdateBtn = document.querySelector(".password-save-btn");
+    this.logoutBtn = document.querySelector(".log-out-btn");
+    this.nameUpdateBtn = document.querySelector(".name-save-btn");
+    this.emailUpdateBtn = document.querySelector(".email-save-btn");
   }
 
   setInput(user) {
@@ -12,11 +13,7 @@ export class DashboardView {
     accountEmail.value = user.data.user.email;
   }
 
-  notLoggedIn() {
-    window.location.href = "/login.html?notLoggedIn=true";
-  }
-
-  getChangePasswordInput() {
+  getPasswordInput() {
     const currentPassword = document.getElementById("current-password").value;
     const newPassword = document.getElementById("new-password").value;
     const confirmNewPassword = document.getElementById(
@@ -29,24 +26,42 @@ export class DashboardView {
     };
   }
 
+  getNameInput() {
+    const name = document.getElementById("account-name").value;
+    return { name };
+  }
+
+  getEmailInput() {
+    const email = document.getElementById("account-email").value;
+    return { email };
+  }
+
   resetInput() {
     document.getElementById("current-password").value = "";
     document.getElementById("new-password").value = "";
     document.getElementById("confirm-new-password").value = "";
   }
 
-  updateUI() {
-    this.passwordText.classList.add("hidden");
-    this.loader.classList.remove("hidden");
+  updatePasswordBtnUI() {
+    this.passwordUpdateBtn.textContent = "Updating...";
   }
 
-  defaultUI() {
-    this.passwordText.classList.remove("hidden");
-    this.loader.classList.add("hidden");
+  resetPasswordBtnUI() {
+    this.passwordUpdateBtn.textContent = "Update Password";
   }
 
-  getLogoutBtn() {
-    const logoutBtn = document.querySelector(".log-out-btn");
-    return logoutBtn;
+  updateNameBtnUI() {
+    this.nameUpdateBtn.textContent = "Updating...";
+  }
+
+  resetNameBtnUI() {
+    this.nameUpdateBtn.textContent = "Update Name";
+  }
+
+  updateEmailBtnUI() {
+    this.emailUpdateBtn.textContent = "Updating...";
+  }
+  resetEmailBtnUI() {
+    this.emailUpdateBtn.textContent = "Update Email";
   }
 }

@@ -1,6 +1,7 @@
 const _DOMAIN = "http://localhost:9090";
 
 export let isUserLoggedIn = false;
+export let userData = {};
 
 export const callAPI = async (url, type, payload) => {
   const fetchConfig = {

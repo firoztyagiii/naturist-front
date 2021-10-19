@@ -75,6 +75,11 @@
   -webkit-text-fill-color: transparent;
 }
 
+.password-account-form {
+  display: flex;
+  flex-direction: column;
+}
+
 .account-form-name-input,
 .account-form-email-input,
 .current-password-input,
@@ -116,18 +121,22 @@
   color: #6b6b6b70;
 }
 
-.save-setting-btn,
-.password-save-btn {
+.btn-save-setting {
   display: inline-block;
   text-decoration: none;
   color: #fff;
-  background-color: #27ae60;
-  padding: 0.6rem 2rem;
-  font-size: 1.1rem;
+  background-color: #2ecc71;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
   border-radius: 50px;
   font-weight: 300;
   transition: all 0.2s;
   align-self: flex-end;
+  transition: all 0.3s;
+}
+
+.btn-save-setting:hover {
+  background-color: #27ae60;
 }
 /* //////////////////////// */
 
