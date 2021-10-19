@@ -10,6 +10,7 @@ import { tourController } from "./tourController";
 import { checkLogin } from "./authController";
 import { updateEmailController } from "./updateEmailController";
 import { signUpController } from "./signUpController";
+import { tourDetailController } from "./tourDetailController";
 
 const spinner = new Spinner();
 
@@ -19,6 +20,7 @@ const init = async () => {
     await checkLogin();
     await accountActivationController();
     tourController();
+    tourDetailController();
     forgotPasswordController();
     resetPasswordController();
     dashBoardController();

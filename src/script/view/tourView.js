@@ -42,7 +42,7 @@ export class TourView {
     })</span></div>
       </div>
       <div class="tour-btn">
-        <a href="/tour-detail/?id=${tour._id}" class="tour-link">Details</a>
+        <a href="/tour-detail.html?id=${tour._id}" class="tour-link">Details</a>
       </div>
     </div>
   </div>`;

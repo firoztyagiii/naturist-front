@@ -1,0 +1,215 @@
+.tour {
+  position: relative;
+  background-image: linear-gradient(
+      rgba(22, 160, 132, 0.8),
+      rgba(46, 204, 112, 0.8)
+    ),
+    url(../img/jonny-kennaugh-nPOtzvGLYW0-unsplash.jpg);
+  height: 80vh;
+  background-position: center;
+  background-size: cover;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+}
+
+.tour-info {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.tour-title {
+  color: #fff;
+  font-size: 4rem;
+  font-weight: 300;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(22, 160, 132),
+    rgba(46, 204, 112)
+  );
+  padding: 0.4rem 0rem;
+  text-align: center;
+}
+
+.tour-info-details {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.tour-info-detail {
+  display: flex;
+  gap: 0.5rem;
+}
+/* //////////////// */
+
+.tour-facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.tour-facts-left {
+  background-color: #f8f8f8;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  margin-top: -5rem;
+}
+
+.tour-facts-right {
+  background-color: #fff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  margin-top: -5rem;
+}
+
+.tour-quick-facts {
+  display: inline-block;
+  font-size: 2.3rem;
+  margin-bottom: 2rem;
+  background-image: linear-gradient(rgba(22, 160, 132), rgba(46, 204, 112));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tour-facts-items {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: flex-start;
+}
+
+.tour-facts-item {
+  display: flex;
+  gap: 1.3rem;
+  align-items: center;
+  align-self: flex-start;
+}
+
+.tour-facts-item i {
+  font-size: 1.3rem;
+  background-image: linear-gradient(rgba(22, 160, 132), rgba(46, 204, 112));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tour-facts-item span {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.tour-facts-item p {
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+.tour-description {
+  padding: 0rem 5rem;
+  font-weight: 350;
+  font-size: 1.1rem;
+  line-height: 1.7rem;
+  margin-bottom: 2rem;
+}
+
+/*//////////////// REVIEW//////////////// */
+
+.tour-review {
+  background-image: linear-gradient(
+    to top,
+    rgba(22, 160, 132),
+    rgba(46, 204, 112)
+  );
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 20rem 0rem 15rem 0rem;
+  clip-path: polygon(0 15%, 100% 0, 100% 85%, 0% 100%);
+  margin-top: -20rem;
+}
+
+.review {
+  width: 80%;
+  background-color: #fff;
+  justify-self: center;
+  box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 15%);
+  padding: 3rem 3rem;
+  color: #6b6b6b;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.reviewer-name {
+  font-size: 1.2rem;
+}
+
+.review-info {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.review-text {
+  font-weight: 350;
+  line-height: 1.5rem;
+}
+
+.review-info img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+}
+
+.review-text {
+  margin-bottom: 1.5rem;
+}
+
+.review-ratings {
+  font-size: 1.2rem;
+  background-image: linear-gradient(rgba(22, 160, 132), rgba(46, 204, 112));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: flex;
+  gap: 0.2rem;
+}
+
+.review:hover {
+  transform: scale(1.02);
+}
+
+.tour-images {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  clip-path: polygon(0 21%, 100% 0, 100% 80%, 0% 100%);
+  z-index: 10;
+  margin-top: -8rem;
+  margin-bottom: 7rem;
+}
+
+.tour-images img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fa-bookmark {
+  color: #fff;
+  position: absolute;
+  top: 3%;
+  right: 2%;
+  font-size: 1.7rem;
+}
+
+.fa-bookmark:hover {
+  cursor: pointer;
+}
