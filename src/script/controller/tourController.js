@@ -1,15 +1,37 @@
 import { callAPI } from "../model/model";
 import { TourView } from "../view/tourView";
 import { Spinner } from "../view/spinner";
+import { getPageNumberFromQuery, setPageNumber, getPage } from "./pagination";
+
+const spinner = new Spinner();
 
 export const tourController = async () => {
   if (window.location.pathname == "/tours.html") {
-    const spinner = new Spinner();
+    spinner.showSpinner();
+
+    const itemLimit = 3;
+    const pageNumber = getPageNumberFromQuery();
     const tourView = new TourView();
-    const response = await callAPI("/api/tour", "GET");
+
+    pageNumber && setPageNumber(pageNumber, tourView);
+
+    tourView.nextPageBtn.addEventListener("click", async function () {
+      getPage("next", tourView);
+    });
+
+    tourView.prevPageBtn.addEventListener("click", async function () {
+      getPage("previous", tourView);
+    });
+
+    const response = await callAPI(
+      `/api/tour?page=${pageNumber ? pageNumber : 1}&limit=${itemLimit}`,
+      "GET"
+    );
+
     response.data.tours.forEach((tour) => {
       tourView.generateMarkup(tour);
     });
+
     spinner.hideSpinner();
   }
 };

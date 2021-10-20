@@ -4,6 +4,7 @@ export class TourDetailView {
   }
 
   generateMarkup(tour) {
+    const reviewLength = tour.reviews;
     const markup = `<div class="tour">
         <i class="far fa-bookmark"></i>
         <div class="tour-info">
@@ -70,33 +71,39 @@ export class TourDetailView {
 
     this.tourContainer.innerHTML = "";
     this.tourContainer.insertAdjacentHTML("afterbegin", markup);
+    if (reviewLength == 0) {
+      const tourReview = document.querySelector(".tour-review");
+      tourReview.style.padding = "0rem";
+      tourReview.style.marginTop = "0";
+    }
     const tourImg = document.querySelector(".tour");
     tourImg.style.backgroundImage = `linear-gradient(
       rgba(22, 160, 132, 0.8),
       rgba(46, 204, 112, 0.8)
     ), url("http://localhost:9090/${tour.headImg}")`;
 
-    const tourReviewContainer = document.querySelector(".tour-review");
+    if (reviewLength != 0) {
+      const tourReviewContainer = document.querySelector(".tour-review");
+      const reviews = tour.reviews.map((rev) => {
+        const stars = [];
 
-    const reviews = tour.reviews.map((rev) => {
-      const stars = [];
+        for (let i = 0; i < rev.rating; i++) {
+          stars.push('<i class="fas fa-star">');
+        }
 
-      for (let i = 0; i < rev.rating; i++) {
-        stars.push('<i class="fas fa-star">');
-      }
-
-      return `<div class="review">
+        return `<div class="review">
         <div class="review-info">
           <img src="./src/img/test.jpg" alt="reviewer-img">
-          <p class="reviewer-name">TEMPORARY NAME</p>
+          <p class="reviewer-name">${rev.user.name}</p>
         </div>
         <p class="review-text">${rev.review}</p>
         <div class="review-ratings">
            ${stars.join("\n")}
         </div>
       </div>`;
-    });
-    tourReviewContainer.insertAdjacentHTML("afterbegin", reviews.join("\n"));
-    // document.querySelector(".review-ratings").nextElementSibling.remove();
+      });
+      tourReviewContainer.insertAdjacentHTML("afterbegin", reviews.join("\n"));
+      document.querySelector(".review-ratings").nextElementSibling.remove();
+    }
   }
 }

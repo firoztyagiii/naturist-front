@@ -9,6 +9,7 @@
   grid-template-columns: 25% 25% 25%;
   justify-content: center;
   gap: 3rem;
+  row-gap: 7rem;
   padding: 7rem 0rem;
 }
 
@@ -19,6 +20,9 @@
   box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 10%);
   border-radius: 3px;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .tour-header {
@@ -133,4 +137,33 @@
 .tour-link:hover {
   transform: translateY(-3px);
   box-shadow: 0 1rem 2rem rgb(0 0 0 / 15%);
+}
+
+/* /////////////// */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding-bottom: 3rem;
+}
+
+.prev-page,
+.next-page,
+.current-page {
+  outline: none;
+  border: none;
+  background-color: #27ae60;
+  padding: 0.5rem 1rem;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 0.8rem;
+  transition: all 0.3s;
+}
+
+.prev-page:hover,
+.next-page:hover,
+.current-page:hover {
+  cursor: pointer;
+  background-color: #239d56;
 }

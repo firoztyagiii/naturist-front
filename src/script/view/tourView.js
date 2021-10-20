@@ -1,12 +1,19 @@
 export class TourView {
   constructor() {
     this.tourContainer = document.querySelector(".tour-container");
+    this.nextPageBtn = document.querySelector(".next-page");
+    this.prevPageBtn = document.querySelector(".prev-page");
+    this.currentPage = document.querySelector(".current-page");
+  }
+  increasePageNumber() {
+    this.nextPageBtn.dataset.currentpage++;
   }
   generateMarkup(tour) {
+    // this.tourContainer.innerHTML = "";
     const markup = ` <div class="tour">
     <div class="tour-header">
       <span class="image-overlay"></span>
-      <img src="./src/img/biking.jpg" alt="" class="tour-img">
+      <img src="http://localhost:9090/${tour.headImg}" alt="" class="tour-img">
     </div>
     <div class="tour-content">
       <p class="tour-title">${tour.name}</p>

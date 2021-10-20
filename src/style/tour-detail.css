@@ -22,11 +22,13 @@
   font-size: 4rem;
   font-weight: 300;
   background-image: linear-gradient(
-    to bottom,
+    to top,
     rgba(22, 160, 132),
     rgba(46, 204, 112)
   );
   padding: 0.4rem 0rem;
+  width: 70%;
+  margin: 0 auto;
   text-align: center;
 }
 
