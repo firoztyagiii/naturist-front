@@ -4,10 +4,18 @@ export class TourView {
     this.nextPageBtn = document.querySelector(".next-page");
     this.prevPageBtn = document.querySelector(".prev-page");
     this.currentPage = document.querySelector(".current-page");
+    this.loadMoreBtn = document.querySelector(".load-more");
+    // this.sortBtn = document.querySelector(".sort-by-price");
   }
+
+  getQuery() {
+    return window.location.search;
+  }
+
   increasePageNumber() {
     this.nextPageBtn.dataset.currentpage++;
   }
+
   generateMarkup(tour) {
     // this.tourContainer.innerHTML = "";
     const markup = ` <div class="tour">
@@ -53,6 +61,19 @@ export class TourView {
       </div>
     </div>
   </div>`;
-    this.tourContainer.insertAdjacentHTML("afterbegin", markup);
+    this.tourContainer.insertAdjacentHTML("beforeend", markup);
+  }
+  updateUIForLoadBtn() {
+    const btnText = document.querySelector(".load-more-text");
+    const loader = document.querySelector(".loader");
+    btnText.classList.add("hidden");
+    loader.classList.remove("hidden");
+  }
+
+  resetUIForLoadBtn() {
+    const btnText = document.querySelector(".load-more-text");
+    const loader = document.querySelector(".loader");
+    btnText.classList.remove("hidden");
+    loader.classList.add("hidden");
   }
 }

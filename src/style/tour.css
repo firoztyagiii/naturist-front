@@ -10,7 +10,7 @@
   justify-content: center;
   gap: 3rem;
   row-gap: 7rem;
-  padding: 7rem 0rem;
+  padding: 4rem 0rem;
 }
 
 .tour {
@@ -134,7 +134,9 @@
   transition: all 0.2s;
 }
 
-.tour-link:hover {
+.tour-link:hover,
+.load-more:hover {
+  cursor: pointer;
   transform: translateY(-3px);
   box-shadow: 0 1rem 2rem rgb(0 0 0 / 15%);
 }
@@ -167,3 +169,21 @@
   cursor: pointer;
   background-color: #239d56;
 }
+
+.current-page {
+  padding: 0.7rem 1rem;
+  border-radius: 50%;
+}
+
+.load-more {
+  background-color: #27ae60;
+  border: none;
+  outline: none;
+  padding: 0.8rem 1.6rem;
+  color: #fff;
+  font-size: 0.9rem;
+  border-radius: 15rem;
+  transition: all 0.3s;
+}
+
+/* //////////////// */

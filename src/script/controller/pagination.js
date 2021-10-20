@@ -15,7 +15,7 @@ export const getPageNumberFromQuery = () => {
 export const setPageNumber = (pageNumber, tourView) => {
   if (pageNumber) {
     tourView.nextPageBtn.dataset.nextpage = pageNumber;
-    tourView.currentPage.textContent = `CURR ${pageNumber}`;
+    tourView.currentPage.textContent = `${pageNumber}`;
     tourView.prevPageBtn.dataset.prevpage = pageNumber;
   }
 };
@@ -55,7 +55,7 @@ export const getPage = async (which, tourView) => {
     return;
   }
 
-  tourView.currentPage.textContent = `CURR ${pageToFetch}`;
+  tourView.currentPage.textContent = `${pageToFetch}`;
 
   window.history.pushState("", "", `/tours.html?page=${pageToFetch}`);
   tourView.tourContainer.innerHTML = "";
