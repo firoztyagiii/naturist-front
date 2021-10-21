@@ -3,10 +3,10 @@ export class TourDetailView {
     this.tourContainer = document.querySelector(".tour-container");
   }
 
-  generateMarkup(tour) {
+  generateMarkup(tour, isBookmarked) {
     const reviewLength = tour.reviews.length;
     const markup = `<div class="tour">
-        <i class="far fa-bookmark"></i>
+        <i class="${isBookmarked ? "fas" : "far"} fa-bookmark"></i>
         <div class="tour-info">
         <div class="tour-title">
         <span>${tour.name.toUpperCase()}</span>
@@ -105,12 +105,18 @@ export class TourDetailView {
         return markup;
       });
 
-      console.log(reviews.join(""));
-
       tourReviewContainer.innerHTML = reviews.join("");
-      // document.querySelectorAll(".review").forEach((item) => {
-      //   item.lastElementChild.remove();
-      // });
     }
+  }
+
+  addToBookmark(cb, id) {
+    const bookmarkBtn = document.querySelector(".fa-bookmark");
+    bookmarkBtn.addEventListener("click", function () {
+      cb(id);
+    });
+  }
+
+  updateBookmarkUI() {
+    document.querySelector(".fa-bookmark").classList.replace("far", "fas");
   }
 }
