@@ -11,6 +11,7 @@ import { checkLogin } from "./authController";
 import { updateEmailController } from "./updateEmailController";
 import { signUpController } from "./signUpController";
 import { tourDetailController } from "./tourDetailController";
+import { twoFaController } from "./2faController";
 
 const spinner = new Spinner();
 
@@ -27,6 +28,7 @@ const init = async () => {
     loginController();
     signUpController();
     updateEmailController();
+    twoFaController();
     spinner.hideSpinner();
   } catch (err) {
     console.log(err);

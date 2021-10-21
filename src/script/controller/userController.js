@@ -10,6 +10,13 @@ export const login = async (loginView) => {
     loginView.updateUI();
     const input = loginView.getLoginInputs();
     const response = await callAPI("/api/user/login", "POST", input);
+    // console.log(response);
+    if (response.data) {
+      popup.showPopup(response.message);
+      setTimeout(() => {
+        window.location.href = `/2fa.html?token=${response.data}`;
+      }, 2000);
+    }
     if (response.status === "Fail") {
       loginView.defaultUI();
       loginView.resetInput();
@@ -20,7 +27,7 @@ export const login = async (loginView) => {
       window.sessionStorage.setItem("user", JSON.stringify(user));
       window.sessionStorage.setItem("isUserLoggedIn", true);
       loginView.defaultUI();
-      window.location.href = "/";
+      // window.location.href = "/";
     }
   } catch (err) {
     console.log(err);
