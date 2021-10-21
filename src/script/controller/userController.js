@@ -27,7 +27,7 @@ export const login = async (loginView) => {
       window.sessionStorage.setItem("user", JSON.stringify(user));
       window.sessionStorage.setItem("isUserLoggedIn", true);
       loginView.defaultUI();
-      // window.location.href = "/";
+      window.location.href = "/";
     }
   } catch (err) {
     console.log(err);

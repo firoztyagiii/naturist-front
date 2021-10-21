@@ -14,6 +14,7 @@ const call = async () => {
   if (response.status === "success") {
     popup.showPopup("Logged in successfully!");
     popup.hidePopup();
+    window.sessionStorage.setItem("isUserLoggedIn", true);
     setTimeout(() => {
       window.location.href = "/index.html";
     }, 2000);

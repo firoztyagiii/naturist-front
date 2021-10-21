@@ -2,6 +2,7 @@ import { callAPI } from "../model/model";
 import { TourView } from "../view/tourView";
 import { Spinner } from "../view/spinner";
 import { getPageNumberFromQuery, setPageNumber, getPage } from "./pagination";
+import { isUserLoggedIn } from "../model/model";
 
 const spinner = new Spinner();
 
@@ -27,10 +28,7 @@ export const tourController = async () => {
       tourView.updateUIForLoadBtn();
       tourView.loadMoreBtn.dataset.page++;
       const pageNumber = tourView.loadMoreBtn.dataset.page;
-      const response = await callAPI(
-        `/api/tour?page=${pageNumber ? pageNumber : 1}&limit=${itemLimit}`,
-        "GET"
-      );
+      const response = await callAPI(`/api/tour?page=${pageNumber ? pageNumber : 1}&limit=${itemLimit}`, "GET");
 
       response.data.tours.forEach((tour) => {
         tourView.generateMarkup(tour);
@@ -38,10 +36,7 @@ export const tourController = async () => {
       tourView.resetUIForLoadBtn();
     });
 
-    const response = await callAPI(
-      `/api/tour?page=${pageNumber ? pageNumber : 1}&limit=${itemLimit}`,
-      "GET"
-    );
+    const response = await callAPI(`/api/tour?page=${pageNumber ? pageNumber : 1}&limit=${itemLimit}`, "GET");
 
     response.data.tours.forEach((tour) => {
       tourView.generateMarkup(tour);
