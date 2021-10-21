@@ -4,7 +4,7 @@ export class TourDetailView {
   }
 
   generateMarkup(tour) {
-    const reviewLength = tour.reviews;
+    const reviewLength = tour.reviews.length;
     const markup = `<div class="tour">
         <i class="far fa-bookmark"></i>
         <div class="tour-info">
@@ -71,11 +71,13 @@ export class TourDetailView {
 
     this.tourContainer.innerHTML = "";
     this.tourContainer.insertAdjacentHTML("afterbegin", markup);
+
     if (reviewLength == 0) {
       const tourReview = document.querySelector(".tour-review");
       tourReview.style.padding = "0rem";
       tourReview.style.marginTop = "0";
     }
+
     const tourImg = document.querySelector(".tour");
     tourImg.style.backgroundImage = `linear-gradient(
       rgba(22, 160, 132, 0.8),
@@ -86,24 +88,29 @@ export class TourDetailView {
       const tourReviewContainer = document.querySelector(".tour-review");
       const reviews = tour.reviews.map((rev) => {
         const stars = [];
-
         for (let i = 0; i < rev.rating; i++) {
-          stars.push('<i class="fas fa-star">');
+          stars.push('<i class="material-icons">star</i>');
         }
 
-        return `<div class="review">
+        const markup = `<div class="review">
         <div class="review-info">
           <img src="./src/img/test.jpg" alt="reviewer-img">
           <p class="reviewer-name">${rev.user.name}</p>
         </div>
         <p class="review-text">${rev.review}</p>
         <div class="review-ratings">
-           ${stars.join("\n")}
+          ${stars.join("")}
         </div>
       </div>`;
+        return markup;
       });
-      tourReviewContainer.insertAdjacentHTML("afterbegin", reviews.join("\n"));
-      document.querySelector(".review-ratings").nextElementSibling.remove();
+
+      console.log(reviews.join(""));
+
+      tourReviewContainer.innerHTML = reviews.join("");
+      // document.querySelectorAll(".review").forEach((item) => {
+      //   item.lastElementChild.remove();
+      // });
     }
   }
 }

@@ -13,14 +13,14 @@ export class ResetPasswordView {
     };
   }
   updateUI() {
-    const loginBtnText = document.querySelector(".reset-btn-text");
+    const loginBtnText = document.querySelector(".reset-btn");
     const loader = document.querySelector(".loader");
     loginBtnText.classList.add("hidden");
     loader.classList.remove("hidden");
   }
 
   defaultUI() {
-    const loginBtnText = document.querySelector(".reset-btn-text");
+    const loginBtnText = document.querySelector(".reset-btn");
     const loader = document.querySelector(".loader");
     loginBtnText.classList.remove("hidden");
     loader.classList.add("hidden");
