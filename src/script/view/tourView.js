@@ -1,3 +1,5 @@
+const DOMAIN = "https://naturist.herokuapp.com/";
+
 export class TourView {
   constructor() {
     this.tourContainer = document.querySelector(".tour-container");
@@ -21,13 +23,11 @@ export class TourView {
     const markup = ` <div class="tour">
     <div class="tour-header">
       <span class="image-overlay"></span>
-      <img src="http://localhost:9090/${tour.headImg}" alt="" class="tour-img">
+      <img src="${DOMAIN}${tour.headImg}" alt="" class="tour-img">
     </div>
     <div class="tour-content">
       <p class="tour-title">${tour.name}</p>
-      <p class="tour-content-fact">${tour.difficulty.toUpperCase()} ${
-      tour.tourLength
-    } Days </p>
+      <p class="tour-content-fact">${tour.difficulty.toUpperCase()} ${tour.tourLength} Days </p>
       <p class="tour-content-info">${tour.info}
       </p>
       <div class="tour-icons">
@@ -52,9 +52,7 @@ export class TourView {
     <div class="tour-footer">
       <div class="tour-ratings">
         <p class="tour-price">$${tour.price} <span>per person</span></p>
-        <div class="tour-rating">${tour.averageRatings} <span>rating (${
-      tour.totalRatings
-    })</span></div>
+        <div class="tour-rating">${tour.averageRatings} <span>rating (${tour.totalRatings})</span></div>
       </div>
       <div class="tour-btn">
         <a href="/tour-detail.html?id=${tour._id}" class="tour-link">Details</a>
