@@ -1,4 +1,4 @@
-const _DOMAIN = "http://127.0.0.1:9090";
+const _DOMAIN = "http://naturist.herokuapp.com";
 
 export let isUserLoggedIn = false;
 export let userData = {};
