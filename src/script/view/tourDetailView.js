@@ -1,4 +1,5 @@
-const DOMAIN = "https://naturist.herokuapp.com";
+import { _DOMAIN } from "../model/model";
+
 export class TourDetailView {
   constructor() {
     this.tourContainer = document.querySelector(".tour-container");
@@ -84,7 +85,7 @@ export class TourDetailView {
     tourImg.style.backgroundImage = `linear-gradient(
       rgba(22, 160, 132, 0.8),
       rgba(46, 204, 112, 0.8)
-    ), url("${DOMAIN}${tour.headImg}")`;
+    ), url("${_DOMAIN}${tour.headImg}")`;
 
     if (reviewLength != 0) {
       const tourReviewContainer = document.querySelector(".tour-review");

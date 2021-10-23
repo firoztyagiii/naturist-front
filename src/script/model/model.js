@@ -1,4 +1,4 @@
-const _DOMAIN = "https://naturist.herokuapp.com";
+export const _DOMAIN = "https://naturist.herokuapp.com";
 
 export let isUserLoggedIn = false;
 export let userData = {};

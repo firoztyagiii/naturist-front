@@ -1,4 +1,4 @@
-const DOMAIN = "https://naturist.herokuapp.com/";
+import { _DOMAIN } from "../model/model";
 
 export class TourView {
   constructor() {
@@ -23,7 +23,7 @@ export class TourView {
     const markup = ` <div class="tour">
     <div class="tour-header">
       <span class="image-overlay"></span>
-      <img src="${DOMAIN}${tour.headImg}" alt="" class="tour-img">
+      <img src="${_DOMAIN}${tour.headImg}" alt="" class="tour-img">
     </div>
     <div class="tour-content">
       <p class="tour-title">${tour.name}</p>
