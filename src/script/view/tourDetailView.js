@@ -1,5 +1,4 @@
-const DOMAIN = "https://naturist.herokuapp.com/";
-
+const DOMAIN = "http://localhost:9090";
 export class TourDetailView {
   constructor() {
     this.tourContainer = document.querySelector(".tour-container");
@@ -69,8 +68,9 @@ export class TourDetailView {
     </div>
     <div class="tour-review">
       
-    </div>`;
-
+    </div>
+    <button class="book-tour-btn" data-tour-id="${tour._id}"> Book Tour Now </button>
+    `;
     this.tourContainer.innerHTML = "";
     this.tourContainer.insertAdjacentHTML("afterbegin", markup);
 
@@ -120,5 +120,10 @@ export class TourDetailView {
 
   updateBookmarkUI() {
     document.querySelector(".fa-bookmark").classList.replace("far", "fas");
+  }
+
+  getBookBtn() {
+    const bookBtn = document.querySelector(".book-tour-btn");
+    return bookBtn;
   }
 }

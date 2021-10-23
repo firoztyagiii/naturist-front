@@ -31,7 +31,18 @@ export const tourDetailController = async () => {
     if (!id) {
       return (window.location.href = "/tours.html");
     }
+
     await call(id, tourDetailView);
     tourDetailView.addToBookmark(hitAddBookmark, id);
+    tourDetailView.getBookBtn().addEventListener("click", async (e) => {
+      const stripe = Stripe(
+        "pk_test_51JnKOySDGwQlZw5DCFGmbXwnG79YA1zMjJOchBjbrSXAXfuGnU9123ZvtyDj4eejfPYAQFBAOKp6hJV8yfTkSmMV00njrD4xWs"
+      );
+      const id = e.target.dataset.tourId;
+      const session = await callAPI(`/api/checkout/checkout-session/${id}`, "GET");
+      stripe.redirectToCheckout({
+        sessionId: session.session.id,
+      });
+    });
   }
 };
