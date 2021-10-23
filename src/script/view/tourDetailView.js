@@ -1,4 +1,4 @@
-const DOMAIN = "http://localhost:9090";
+const DOMAIN = "https://naturist.herokuapp.com";
 export class TourDetailView {
   constructor() {
     this.tourContainer = document.querySelector(".tour-container");
