@@ -39,6 +39,7 @@ export const tourDetailController = async () => {
         "pk_test_51JnKOySDGwQlZw5DCFGmbXwnG79YA1zMjJOchBjbrSXAXfuGnU9123ZvtyDj4eejfPYAQFBAOKp6hJV8yfTkSmMV00njrD4xWs"
       );
       const id = e.target.dataset.tourId;
+      console.log(id);
       const session = await callAPI(`/api/checkout/checkout-session/${id}`, "GET");
       stripe.redirectToCheckout({
         sessionId: session.session.id,
