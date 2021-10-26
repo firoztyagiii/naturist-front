@@ -33,7 +33,7 @@ export const tourDetailController = async () => {
     }
 
     await call(id, tourDetailView);
-    tourDetailView.addToBookmark(hitAddBookmark, id);
+    await tourDetailView.addToBookmark(hitAddBookmark, id);
     tourDetailView.getBookBtn().addEventListener("click", async (e) => {
       const id = e.target.dataset.tourId;
       const session = await callAPI(`/api/checkout/checkout-session/${id}`, "GET");
