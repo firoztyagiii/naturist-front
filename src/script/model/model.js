@@ -8,7 +8,7 @@ export const callAPI = async (url, type, payload) => {
   const fetchConfig = {
     method: type,
     credentials: "include",
-    headers: { "Content-Type": "application/json" },
+    // headers: { "Content-Type": "application/json" },
   };
 
   if (payload) {
