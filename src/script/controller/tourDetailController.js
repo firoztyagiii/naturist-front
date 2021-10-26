@@ -35,7 +35,8 @@ export const tourDetailController = async () => {
     await call(id, tourDetailView);
     await tourDetailView.addToBookmark(hitAddBookmark, id);
     tourDetailView.getBookBtn().addEventListener("click", async (e) => {
-      const id = e.target.dataset.tourId;
+      const id = window.location.search.split("=")[1];
+
       const session = await callAPI(`/api/checkout/checkout-session/${id}`, "GET");
       const options = {
         order_id: session.order.id,
