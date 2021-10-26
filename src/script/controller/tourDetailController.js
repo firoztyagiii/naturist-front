@@ -34,16 +34,16 @@ export const tourDetailController = async () => {
 
     await call(id, tourDetailView);
     tourDetailView.addToBookmark(hitAddBookmark, id);
-    // tourDetailView.getBookBtn().addEventListener("click", async (e) => {
-    //   const stripe = Stripe(
-    //     "pk_test_51JnKOySDGwQlZw5DCFGmbXwnG79YA1zMjJOchBjbrSXAXfuGnU9123ZvtyDj4eejfPYAQFBAOKp6hJV8yfTkSmMV00njrD4xWs"
-    //   );
-    //   const id = e.target.dataset.tourId;
-    //   console.log(id);
-    //   const session = await callAPI(`/api/checkout/checkout-session/${id}`, "GET");
-    //   stripe.redirectToCheckout({
-    //     sessionId: session.session.id,
-    //   });
-    // });
+    tourDetailView.getBookBtn().addEventListener("click", async (e) => {
+      const id = e.target.dataset.tourId;
+      const session = await callAPI(`/api/checkout/checkout-session/${id}`, "GET");
+      const options = {
+        order_id: session.order.id,
+        key: "rzp_test_iQXxC9LBZRPfH9",
+        prefill: { name: session.order.notes.name, email: session.order.notes.email },
+      };
+      const rzr = new Razorpay(options);
+      rzr.open();
+    });
   }
 };
