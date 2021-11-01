@@ -70,7 +70,14 @@ export class TourDetailView {
     <div class="tour-review">
       
     </div>
-    <button class="book-tour-btn" data-tour-id="${tour._id}"> Book Tour Now </button>
+    <div class="booking-section">
+    <img src="./src/img/1.jpg" alt="">
+  <div class="booking">
+    <h1 class="booking-text">WHAT ARE YOU WAITING FOR?</h1>
+    <p>7 days. 1 adventure. Infinite memories. Make it yours today!</p>
+  </div>
+  <button class="book-tour-btn" data-tour-id="${tour._id}"> Book Tour Now </button>
+</div>
     `;
     this.tourContainer.innerHTML = "";
     this.tourContainer.insertAdjacentHTML("afterbegin", markup);

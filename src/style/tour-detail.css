@@ -21,11 +21,7 @@
   color: #fff;
   font-size: 4rem;
   font-weight: 300;
-  background-image: linear-gradient(
-    to top,
-    rgba(22, 160, 132),
-    rgba(46, 204, 112)
-  );
+  background-image: linear-gradient(to top, rgba(22, 160, 132), rgba(46, 204, 112));
   padding: 0.4rem 0rem;
   width: 70%;
   margin: 0 auto;
@@ -125,11 +121,7 @@
 /*//////////////// REVIEW//////////////// */
 
 .tour-review {
-  background-image: linear-gradient(
-    to top,
-    rgba(22, 160, 132),
-    rgba(46, 204, 112)
-  );
+  background-image: linear-gradient(to top, rgba(22, 160, 132), rgba(46, 204, 112));
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 20rem 0rem 15rem 0rem;
@@ -213,4 +205,54 @@
 
 .fa-bookmark:hover {
   cursor: pointer;
+}
+
+.tour-container {
+  padding-bottom: 3rem;
+}
+
+.booking-section {
+  padding: 2rem 3rem;
+  display: flex;
+  box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 15%);
+  border-radius: 4px;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 70%;
+  margin: 4rem auto;
+  overflow: hidden;
+}
+
+.booking-section img {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  margin-left: -4rem;
+}
+
+.booking-text {
+  background-image: linear-gradient(rgba(22, 160, 132), rgba(46, 204, 112));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.book-tour-btn {
+  display: inline-block;
+  outline: none;
+  border: none;
+  background-color: #2ecc70;
+  color: #fff;
+  font-size: 1.1rem;
+  border-radius: 3rem;
+  padding: 1rem 1.2rem;
+  transition: all 0.3s;
+}
+
+.book-tour-btn:hover {
+  cursor: pointer;
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgb(0 0 0 / 15%);
 }

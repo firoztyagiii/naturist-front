@@ -35,14 +35,19 @@ export const tourDetailController = async () => {
     await call(id, tourDetailView);
     await tourDetailView.addToBookmark(hitAddBookmark, id);
     tourDetailView.getBookBtn().addEventListener("click", async (e) => {
+      document.querySelector(".book-tour-btn").textContent = "Processing...";
+      const user = await callAPI("/api/user/about-me", "GET");
+      if (user.status == "Fail") {
+        window.location.href = "/login.html";
+      }
       const id = window.location.search.split("=")[1];
-
       const session = await callAPI(`/api/checkout/checkout-session/${id}`, "GET");
       const options = {
         order_id: session.order.id,
         key: "rzp_test_iQXxC9LBZRPfH9",
         prefill: { name: session.order.notes.name, email: session.order.notes.email },
       };
+      document.querySelector(".book-tour-btn").textContent = "Book Tour Now";
       const rzr = new Razorpay(options);
       rzr.open();
     });
