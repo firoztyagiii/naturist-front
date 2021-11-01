@@ -46,6 +46,9 @@ export const tourDetailController = async () => {
         order_id: session.order.id,
         key: "rzp_test_iQXxC9LBZRPfH9",
         prefill: { name: session.order.notes.name, email: session.order.notes.email },
+        handler() {
+          window.location.href = "/my-bookings.html?sucess=true";
+        },
       };
       document.querySelector(".book-tour-btn").textContent = "Book Tour Now";
       const rzr = new Razorpay(options);
