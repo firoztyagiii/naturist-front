@@ -1,3 +1,5 @@
+import { _DOMAIN } from "../model/model";
+
 export class MyBookingsView {
   constructor() {
     this.container = document.querySelector(".tour-container");

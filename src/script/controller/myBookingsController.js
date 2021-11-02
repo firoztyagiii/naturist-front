@@ -5,20 +5,21 @@ import { MyBookingsView } from "../view/myBookingsView";
 
 export const myBookingsController = async () => {
   if (window.location.pathname === "/my-bookings.html") {
-    if ((window.location.href = "/my-bookings.html?success=true")) {
+    if (window.location.search == "?success=true") {
       const popup = new Popup();
       popup.showPopup("Tour has been added to your bookings");
       popup.hidePopup();
+      window.history.replaceState("", "", "/my-bookings.html");
     }
     const spinner = new Spinner();
     spinner.showSpinner();
-    const bookings = await callAPI(`/api/bookings`, "GET");
+    const bookings = await callAPI(`/api/booking`, "GET");
     if (bookings.status == "Fail") {
       return popup.showPopup("Something went wrong!");
     }
     const myBookingView = new MyBookingsView();
-    bookings.forEach((element) => {
-      myBookingView.showBookings(element);
+    bookings.data.bookings.forEach((element) => {
+      myBookingView.showBookings(element.tour);
     });
     spinner.hideSpinner();
   }

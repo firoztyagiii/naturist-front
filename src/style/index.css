@@ -3,11 +3,7 @@
 
 .hero {
   position: relative;
-  background-image: linear-gradient(
-      rgba(66, 212, 127, 0.438),
-      rgba(39, 174, 95, 0.5)
-    ),
-    url(../img/hero.jpg);
+  background-image: linear-gradient(rgba(66, 212, 127, 0.438), rgba(39, 174, 95, 0.5)), url(../img/hero.jpg);
   height: calc(90vh - 1rem);
   background-size: cover;
   background-position: center;
@@ -26,6 +22,7 @@
   font-size: 4rem;
   font-weight: 300;
   margin-bottom: 1.5rem;
+  animation: moveText 2s;
 }
 
 .hero-btn {
@@ -37,6 +34,29 @@
   padding: 1rem 3rem;
   border-radius: 2rem;
   position: relative;
+  animation: moveBtn 2s;
+}
+
+@keyframes moveBtn {
+  from {
+    transform: translateX(5rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0rem);
+    opacity: 1;
+  }
+}
+
+@keyframes moveText {
+  from {
+    transform: translateX(-5rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0rem);
+    opacity: 1;
+  }
 }
 
 .hero-btn::after {
