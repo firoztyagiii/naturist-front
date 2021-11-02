@@ -1,4 +1,4 @@
-@media (max-width: 1020px) {
+/* @media (max-width: 1020px) {
   html {
     font-size: 90%;
   }
@@ -56,5 +56,190 @@
 @media (max-width: 650px) {
   .form-box {
     max-width: 80%;
+  }
+} */
+
+@media (max-width: 1240px) {
+  html {
+    font-size: 90%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .booking-container img {
+    display: none;
+  }
+
+  .booking-container {
+    padding: 3rem 2rem;
+  }
+
+  .hero-content {
+    width: 100%;
+  }
+  .tour-container {
+    grid-template-columns: 35% 35%;
+    justify-content: space-evenly;
+    column-gap: 0rem;
+  }
+  .tour {
+    width: 100%;
+  }
+
+  .tour-detail-title {
+    font-size: 3.5rem;
+  }
+
+  .slider {
+    /* display: flex; */
+    z-index: 10;
+  }
+
+  .tour-review {
+    margin-top: -9rem;
+    padding: 10rem 0rem 7rem 0rem;
+    grid-template-columns: 40% 40%;
+    justify-content: space-evenly;
+    row-gap: 3rem;
+  }
+
+  .tour-images {
+    display: none;
+  }
+
+  /* .tour-images { */
+  /* clip-path: polygon(0 3%, 100% 0, 100% 94%, 0% 100%); */
+
+  /* display: flex;
+    flex-direction: column; */
+  /* } */
+}
+
+@media (max-width: 1100px) {
+  .form {
+    max-width: 70%;
+  }
+  .form-box {
+    max-width: 70%;
+  }
+}
+
+@media (max-width: 800px) {
+  .tour-container {
+    grid-template-columns: 40% 40%;
+  }
+
+  .form {
+    max-width: 100%;
+  }
+
+  .form-box {
+    max-width: 80%;
+  }
+
+  .tour-detail-title {
+    font-size: 3rem;
+  }
+  .tour-description {
+    padding: 0rem 2rem;
+  }
+  .review {
+    width: 100%;
+  }
+  .booking-container {
+    display: flex;
+    padding: 2rem 1rem;
+    flex-direction: column;
+    max-width: 90%;
+  }
+
+  .booking {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .hero-title {
+    font-size: 3.5rem;
+  }
+  .bars {
+    display: inline-block;
+  }
+  .list {
+    display: none;
+  }
+  .tour-container {
+    grid-template-columns: 60%;
+  }
+
+  .tour-title {
+    font-size: 1.2rem;
+  }
+
+  .tour-description {
+    padding: 0rem 1rem;
+  }
+  .tour-detail-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .tour-container {
+    grid-template-columns: 70%;
+  }
+  .tour-facts {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .booking-text {
+    margin-bottom: 1rem;
+  }
+
+  .book-tour-btn {
+    font-size: 1rem;
+  }
+
+  .tour-facts-left {
+    padding-bottom: 8rem;
+  }
+  .tour-facts-right {
+    padding-top: 3rem;
+  }
+  .tour-info {
+    width: 90%;
+  }
+  .tour-review {
+    grid-template-columns: 1fr;
+    padding: 13rem 0rem 13rem 0rem;
+  }
+  .review {
+    width: 90%;
+  }
+  .form-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .tour-container {
+    grid-template-columns: 90%;
+    row-gap: 5rem;
+  }
+  .tour-title {
+    font-size: 1.1rem;
+  }
+  .form-box {
+    max-width: 100%;
+    padding: 0rem 1rem;
+  }
+}
+
+@media (max-width: 300px) {
+  .tour-detail-title {
+    font-size: 2.5rem;
   }
 }

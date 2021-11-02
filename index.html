@@ -6,12 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Naturist</title>
     <link rel="icon" href="./src/img/favicon.ico" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="./src/style/index.css" />
     <link rel="stylesheet" href="./src/style/main.css" />
+    <link rel="stylesheet" href="./src/style/media-query.css" />
     <script src="./src/script/app.js" defer></script>
   </head>
   <body>
     <div class="container">
+      <div class="navigation hidden"></div>
       <div class="popup">OTP has been sent to your email address</div>
       <div class="bg hidden">
         <div class="lds-ring">
@@ -21,6 +29,7 @@
           <div></div>
         </div>
       </div>
+
       <header class="header">
         <nav class="nav">
           <a href="./index.html" class="logo">Naturist</a>
@@ -50,6 +59,7 @@
               <a href="./dashboard.html" class="list-item-link user-name">Welcome</a>
             </li>
           </ul>
+          <i class="fas fa-bars bars"></i>
         </nav>
         <section class="hero">
           <div class="hero-content">

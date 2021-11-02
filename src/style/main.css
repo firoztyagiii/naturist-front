@@ -26,11 +26,14 @@ body {
 
 html {
   font-family: "Josefin Sans", sans-serif;
+  font-size: 100%;
 }
 
 .container {
   max-width: 90%;
   margin: 0 auto;
+  overflow: hidden;
+  position: relative;
 }
 
 .bg {

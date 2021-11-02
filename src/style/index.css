@@ -13,6 +13,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  width: 60%;
   text-align: center;
   transform: translate(-50%, -50%);
 }
@@ -35,6 +36,14 @@
   border-radius: 2rem;
   position: relative;
   animation: moveBtn 2s;
+}
+
+.bars {
+  color: #fff;
+  font-size: 1.5rem;
+  display: none;
+  position: relative;
+  z-index: 19;
 }
 
 @keyframes moveBtn {
@@ -76,4 +85,15 @@
 .hero-btn:hover.hero-btn::after {
   transform: scale(1.5);
   opacity: 0;
+}
+
+.navigation {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.397);
+  box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 10%);
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 50%;
+  z-index: 1;
 }

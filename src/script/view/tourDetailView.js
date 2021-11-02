@@ -10,7 +10,7 @@ export class TourDetailView {
     const markup = `<div class="tour">
         <i class="${isBookmarked ? "fas" : "far"} fa-bookmark"></i>
         <div class="tour-info">
-        <div class="tour-title">
+        <div class="tour-detail-title">
         <span>${tour.name.toUpperCase()}</span>
 
         </div>
@@ -62,21 +62,32 @@ export class TourDetailView {
           </p>
         </div>
     </div>
+    <div class="slider ">
+          <i class="fas fa-arrow-left arrow left-arrow"></i>
+          <i class="fas fa-arrow-right arrow right-arrow"></i>
+          <img class="slider-img" src="./src/img/1.jpg" data-img-number="1" alt="">
+          <img class="slider-img" src="./src/img/2.jpg" data-img-number="2" alt="">
+          <img class="slider-img" src="./src/img/3.jpg" data-img-number="3" alt="">
+          
+        </div>
     <div class="tour-images">
       <img src="./src/img/1.jpg" alt="">
       <img src="./src/img/2.jpg" alt="">
       <img src="./src/img/3.jpg" alt="">
     </div>
+    
     <div class="tour-review">
       
     </div>
     <div class="booking-section">
+    <div class="booking-container">
     <img src="./src/img/1.jpg" alt="">
   <div class="booking">
     <h1 class="booking-text">WHAT ARE YOU WAITING FOR?</h1>
     <p>7 days. 1 adventure. Infinite memories. Make it yours today!</p>
   </div>
   <button class="book-tour-btn" data-tour-id="${tour._id}"> Book Tour Now </button>
+  </div>
 </div>
     `;
     this.tourContainer.innerHTML = "";

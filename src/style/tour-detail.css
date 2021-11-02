@@ -17,13 +17,13 @@
   transform: translate(-50%, -50%);
 }
 
-.tour-title {
+.tour-detail-title {
   color: #fff;
   font-size: 4rem;
   font-weight: 300;
   background-image: linear-gradient(to top, rgba(22, 160, 132), rgba(46, 204, 112));
   padding: 0.4rem 0rem;
-  width: 70%;
+  /* width: 70%; */
   margin: 0 auto;
   text-align: center;
 }
@@ -62,9 +62,8 @@
 .tour-facts-right {
   background-color: #fff;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
   flex-direction: column;
+  text-align: center;
   padding-top: 10rem;
   padding-bottom: 10rem;
   margin-top: -5rem;
@@ -116,6 +115,39 @@
   font-size: 1.1rem;
   line-height: 1.7rem;
   margin-bottom: 2rem;
+}
+
+/* SLIDER */
+
+.slider {
+  position: relative;
+  max-width: 70%;
+  margin: 0 auto;
+  display: flex;
+  overflow: hidden;
+  display: none;
+}
+
+.arrow {
+  display: inline-block;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  font-size: 1.4rem;
+  transform: translateY(-50%);
+}
+
+.right-arrow {
+  right: 1rem;
+}
+
+.left-arrow {
+  left: 1rem;
+}
+
+.slider img {
+  width: 100%;
+  transition: all 1s;
 }
 
 /*//////////////// REVIEW//////////////// */
@@ -211,30 +243,44 @@
   padding-bottom: 3rem;
 }
 
-.booking-section {
+/* .booking-container {
   padding: 2rem 3rem;
   display: flex;
   box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 15%);
   border-radius: 4px;
   align-items: center;
-  justify-content: space-between;
   max-width: 70%;
   margin: 4rem auto;
   overflow: hidden;
+} */
+
+.booking-section {
+  padding: 7rem 0rem;
+}
+
+.booking-container {
+  padding: 2rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 15%);
+  max-width: 80%;
+  margin: 0 auto;
 }
 
 .booking-section img {
   width: 8rem;
   height: 8rem;
   border-radius: 50%;
-  margin-left: -4rem;
+  /* margin-left: -4rem; */
 }
 
 .booking-text {
   background-image: linear-gradient(rgba(22, 160, 132), rgba(46, 204, 112));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 400;
   margin-bottom: 0.5rem;
 }
