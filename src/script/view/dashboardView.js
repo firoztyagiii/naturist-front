@@ -1,3 +1,5 @@
+import { IndexView } from "./indexView";
+
 export class DashboardView {
   constructor() {
     this.passwordUpdateBtn = document.querySelector(".password-save-btn");
@@ -16,9 +18,7 @@ export class DashboardView {
   getPasswordInput() {
     const currentPassword = document.getElementById("current-password").value;
     const newPassword = document.getElementById("new-password").value;
-    const confirmNewPassword = document.getElementById(
-      "confirm-new-password"
-    ).value;
+    const confirmNewPassword = document.getElementById("confirm-new-password").value;
     return {
       currentPassword,
       newPassword,
@@ -63,5 +63,24 @@ export class DashboardView {
   }
   resetEmailBtnUI() {
     this.emailUpdateBtn.textContent = "Update Email";
+  }
+
+  updateData(passwordUpdateHandler, nameUpdateHandler, emailUpdateHandler, logout, view) {
+    this.passwordUpdateBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      passwordUpdateHandler(view);
+    });
+    this.nameUpdateBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      nameUpdateHandler(view);
+    });
+    this.emailUpdateBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      emailUpdateHandler(view);
+    });
+    this.logoutBtn.addEventListener("click", async () => {
+      const indexView = new IndexView();
+      await logout(indexView);
+    });
   }
 }

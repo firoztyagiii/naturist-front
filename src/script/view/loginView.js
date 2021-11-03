@@ -1,3 +1,5 @@
+import { login } from "../controller/userController";
+
 export class LoginView {
   constructor() {
     this.loginBtn = document.querySelector(".login-btn");
@@ -22,10 +24,14 @@ export class LoginView {
     loginBtnText.classList.remove("hidden");
     loader.classList.add("hidden");
   }
+
   resetInput() {
-    const password = (document.getElementById("password").value = "");
+    document.getElementById("password").value = "";
   }
-  disableLoginBtn() {
-    this.loginBtn.disabled = true;
+
+  login() {
+    this.loginBtn.addEventListener("click", () => {
+      login(this);
+    });
   }
 }

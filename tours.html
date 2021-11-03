@@ -1,83 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Naturist | Tours</title>
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
-      crossorigin="anonymous"
-    />
-    <link rel="icon" href="./src/img/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="./src/style/main.css" />
-    <link rel="stylesheet" href="./src/style/tour.css" />
-    <link rel="stylesheet" href="./src/style/media-query.css">
-    <script src="./src/script/app.js" defer></script>
-  </head>
-  <body>
-    <div class="popup">OTP has been sent to your email address</div>
 
-    <div class="container">
-      <div class="bg hidden">
-        <div class="lds-ring">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Naturist | Tours</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+  <link rel="icon" href="./src/img/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="./src/style/main.css" />
+  <link rel="stylesheet" href="./src/style/tour.css" />
+  <link rel="stylesheet" href="./src/style/media-query.css">
+  <script src="./src/script/app.js" defer></script>
+</head>
+
+<body>
+  <div class="popup">"</div>
+  <div class="container">
+    <div class="bg hidden">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
-      <header class="header">
-        <nav class="nav">
-          <a href="./index.html" class="logo">Naturist</a>
-          <ul class="user-not-loggedin list">
-            <li class="list-item">
-              <a href="./tours.html" class="list-item-link">Tour</a>
-            </li>
-            <!-- <li class="list-item">
-              <a href="" class="list-item-link">About Me</a>
-            </li> -->
-            <li class="list-item">
-              <a href="./login.html" class="list-item-link">Login</a>
-            </li>
-            <li class="list-item">
-              <a href="./signup.html" class="list-item-link signup-link"
-                >Signup</a
-              >
-            </li>
-          </ul>
-          <ul class="list user-loggedin hidden">
-            <li class="list-item">
-              <a href="./tours.html" class="list-item-link">Tour</a>
-            </li>
-            <!-- <li class="list-item">
-              <a href="./about-me.html" class="list-item-link">About Me</a>
-            </li> -->
-
-            <li class="list-item user-info">
-              <a href="./dashboard.html" class="list-item-link user-name"
-                >Welcome</a
-              >
-            </li>
-          </ul>
-        </nav>
-      </header>
-      <!-- <div class="filter">
-        <button class="sort-by-price">Price</button>
-      </div> -->
-      <div class="tour-container">
-        
+    </div>
+    <header class="header">
+      <nav class="nav">
+        <a href="./index.html" class="logo">Naturist</a>
+        <ul class="user-not-loggedin list">
+          <li class="list-item">
+            <a href="./tours.html" class="list-item-link">Tour</a>
+          </li>
+          <li class="list-item">
+            <a href="./login.html" class="list-item-link">Login</a>
+          </li>
+          <li class="list-item">
+            <a href="./signup.html" class="list-item-link signup-link">Signup</a>
+          </li>
+        </ul>
+        <ul class="list user-loggedin hidden">
+          <li class="list-item">
+            <a href="./tours.html" class="list-item-link">Tour</a>
+          </li>
+          <li class="list-item user-info">
+            <a href="./dashboard.html" class="list-item-link user-name">Welcome</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="tour-container">
     </div>
     <div class="pagination">
-      <!-- <button class="prev-page" data-prevpage="1">PREV</button>
-      <button class="current-page" >1</button>
-       <button class="next-page" data-nextpage="1">NEXT</button> -->
-       <button data-page="1" class="load-more">
-         <span class="load-more-text">Load More</span>
-         <div class="loader hidden"></div>
-       </button>
+      <button data-page="1" class="load-more">
+        <span class="load-more-text">Load More</span>
+        <div class="loader hidden"></div>
+      </button>
     </div>
-  </body>
+</body>
+
 </html>

@@ -22,4 +22,13 @@ export class ForgotPasswordView {
     resetBtn.classList.remove("hidden");
     loader.classList.add("hidden");
   }
+
+  resetPassword(resetPasswordHander) {
+    this.resetBtn.addEventListener("click", async () => {
+      this.updateUI();
+      const email = this.getInput();
+      await resetPasswordHander(email);
+      this.defaultUI();
+    });
+  }
 }

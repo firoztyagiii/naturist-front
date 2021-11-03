@@ -17,8 +17,7 @@ export class SignupView {
 
   resetInput() {
     const password = (document.getElementById("password").value = "");
-    const confirmPassword = (document.getElementById("confirm-password").value =
-      "");
+    const confirmPassword = (document.getElementById("confirm-password").value = "");
   }
 
   updateUI() {
@@ -33,5 +32,11 @@ export class SignupView {
     const loader = document.querySelector(".loader");
     loginBtnText.classList.remove("hidden");
     loader.classList.add("hidden");
+  }
+
+  signUpEvent(handler) {
+    this.signupbtn.addEventListener("click", () => {
+      handler(this);
+    });
   }
 }

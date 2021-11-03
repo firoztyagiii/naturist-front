@@ -1,25 +1,13 @@
 import { _DOMAIN } from "../model/model";
+import { getPageNumberFromQuery } from "../controller/pagination";
 
 export class TourView {
   constructor() {
     this.tourContainer = document.querySelector(".tour-container");
-    this.nextPageBtn = document.querySelector(".next-page");
-    this.prevPageBtn = document.querySelector(".prev-page");
-    this.currentPage = document.querySelector(".current-page");
     this.loadMoreBtn = document.querySelector(".load-more");
-    // this.sortBtn = document.querySelector(".sort-by-price");
-  }
-
-  getQuery() {
-    return window.location.search;
-  }
-
-  increasePageNumber() {
-    this.nextPageBtn.dataset.currentpage++;
   }
 
   generateMarkup(tour) {
-    // this.tourContainer.innerHTML = "";
     const markup = ` <div class="tour">
     <div class="tour-header">
       <span class="image-overlay"></span>
@@ -61,6 +49,7 @@ export class TourView {
   </div>`;
     this.tourContainer.insertAdjacentHTML("beforeend", markup);
   }
+
   updateUIForLoadBtn() {
     const btnText = document.querySelector(".load-more-text");
     const loader = document.querySelector(".loader");
@@ -73,5 +62,31 @@ export class TourView {
     const loader = document.querySelector(".loader");
     btnText.classList.remove("hidden");
     loader.classList.add("hidden");
+  }
+
+  showMarkup(response) {
+    response.data.tours.forEach((tour) => {
+      this.generateMarkup(tour);
+    });
+  }
+
+  loadMoreItems(callAPI, tourView) {
+    const itemLimit = 3;
+    const pageNumber = getPageNumberFromQuery();
+
+    this.loadMoreBtn.addEventListener("click", async () => {
+      try {
+        this.updateUIForLoadBtn();
+        tourView.loadMoreBtn.dataset.page++;
+
+        const pageNumber = tourView.loadMoreBtn.dataset.page;
+        const response = await callAPI(`/api/tour?page=${pageNumber ? pageNumber : 1}&limit=${itemLimit}`, "GET");
+
+        this.showMarkup(response);
+        this.resetUIForLoadBtn();
+      } catch (err) {
+        // FIXME:
+      }
+    });
   }
 }

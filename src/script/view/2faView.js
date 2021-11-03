@@ -13,9 +13,14 @@ export class TwoFaView {
     return token;
   }
 
-  addListener(cb) {
+  twoFA(handler) {
+    const token = this.getToken();
+    if (!token) {
+      return (window.location.href = "/login.html");
+    }
+
     this.otpBtn.addEventListener("click", async () => {
-      await cb();
+      await handler(token);
     });
   }
   updateUI() {

@@ -23,11 +23,4 @@ export class IndexView {
     initNavbar.classList.remove("hidden");
     toShowNavBar.classList.add("hidden");
   }
-
-  getlogoutBtn() {
-    const logoutbtn = document.querySelector(".logout-btn");
-    if (logoutbtn) {
-      return logoutbtn;
-    }
-  }
 }

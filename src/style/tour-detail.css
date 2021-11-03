@@ -40,6 +40,8 @@
 .tour-info-detail {
   display: flex;
   gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
 }
 /* //////////////// */
 
@@ -231,7 +233,7 @@
   color: #fff;
   position: absolute;
   top: 3%;
-  right: 2%;
+  right: 1rem;
   font-size: 1.7rem;
 }
 
@@ -265,7 +267,7 @@
   justify-content: space-between;
   background-color: #fff;
   box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 15%);
-  max-width: 80%;
+  max-width: 50rem;
   margin: 0 auto;
 }
 
@@ -301,4 +303,8 @@
   cursor: pointer;
   transform: translateY(-3px);
   box-shadow: 0 1rem 2rem rgb(0 0 0 / 15%);
+}
+
+.booking p {
+  font-weight: 300;
 }

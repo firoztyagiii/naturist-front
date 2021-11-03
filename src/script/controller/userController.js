@@ -10,7 +10,6 @@ export const login = async (loginView) => {
     loginView.updateUI();
     const input = loginView.getLoginInputs();
     const response = await callAPI("/api/user/login", "POST", input);
-    // console.log(response);
     if (response.data) {
       popup.showPopup(response.message);
       setTimeout(() => {
@@ -30,7 +29,7 @@ export const login = async (loginView) => {
       window.location.href = "/";
     }
   } catch (err) {
-    console.log(err);
+    // FIXME:
   }
 };
 
@@ -41,35 +40,51 @@ export const logout = async (indexView) => {
     window.location.href = "/";
     spinner.hideSpinner();
   } catch (err) {
-    console.log(err);
+    // FIXME:
   }
 };
 
 export const signUp = async (signupView) => {
-  signupView.updateUI();
-  const input = signupView.getInputs();
-  const response = await callAPI("/api/user/signup", "POST", input);
-  if (response.data) popup.showPopup(response.data.message);
-  else popup.showPopup(response.message);
-  signupView.resetInput();
-  popup.hidePopup();
-  signupView.defaultUI();
+  try {
+    signupView.updateUI();
+    const input = signupView.getInputs();
+    const response = await callAPI("/api/user/signup", "POST", input);
+    if (response.data) popup.showPopup(response.data.message);
+    else popup.showPopup(response.message);
+    signupView.resetInput();
+    popup.hidePopup();
+    signupView.defaultUI();
+  } catch (err) {
+    // FIXME:
+  }
 };
 
 export const updatePassword = async (input) => {
-  const response = await callAPI("/api/user/update-me/password", "POST", input);
-  popup.showPopup(response.message);
-  popup.hidePopup();
+  try {
+    const response = await callAPI("/api/user/update-me/password", "POST", input);
+    popup.showPopup(response.message);
+    popup.hidePopup();
+  } catch (err) {
+    // FIXME:
+  }
 };
 
 export const updateName = async (input) => {
-  const response = await callAPI("/api/user/update-me/info", "POST", input);
-  popup.showPopup(response.message);
-  popup.hidePopup();
+  try {
+    const response = await callAPI("/api/user/update-me/info", "POST", input);
+    popup.showPopup(response.message);
+    popup.hidePopup();
+  } catch (err) {
+    // FIXME:
+  }
 };
 
 export const updateEmail = async (input) => {
-  const response = await callAPI("/api/user/update-me/email", "POST", input);
-  popup.showPopup(response.message);
-  popup.hidePopup();
+  try {
+    const response = await callAPI("/api/user/update-me/email", "POST", input);
+    popup.showPopup(response.message);
+    popup.hidePopup();
+  } catch (err) {
+    // FIXME:
+  }
 };

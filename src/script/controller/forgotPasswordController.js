@@ -5,27 +5,22 @@ import { Spinner } from "../view/spinner";
 
 const popup = new Popup();
 
-const call = async (email) => {
-  const response = await callAPI("/api/user/forgot-password", "POST", email);
-  if (response.status === "Fail") {
+const resetPasswordHander = async (email) => {
+  try {
+    const response = await callAPI("/api/user/forgot-password", "POST", email);
     popup.showPopup(response.message);
     popup.hidePopup();
-  } else {
-    popup.showPopup(response.message);
-    popup.hidePopup();
+  } catch (err) {
+    // FIXME:
   }
 };
 
-export const forgotPasswordController = async () => {
+export const forgotPasswordController = () => {
   if (window.location.pathname == "/forgot-password.html") {
     const spinner = new Spinner();
+    spinner.showSpinner();
     const forgotPasswordView = new ForgotPasswordView();
-    forgotPasswordView.resetBtn.addEventListener("click", async function () {
-      forgotPasswordView.updateUI();
-      const email = forgotPasswordView.getInput();
-      await call(email);
-      forgotPasswordView.defaultUI();
-    });
+    forgotPasswordView.resetPassword(resetPasswordHander);
     spinner.hideSpinner();
   }
 };

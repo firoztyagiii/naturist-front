@@ -1,47 +1,26 @@
 import { callAPI } from "../model/model";
 import { TourView } from "../view/tourView";
 import { Spinner } from "../view/spinner";
-import { getPageNumberFromQuery, setPageNumber, getPage } from "./pagination";
-import { isUserLoggedIn } from "../model/model";
-
-const spinner = new Spinner();
+import { getPageNumberFromQuery } from "./pagination";
 
 export const tourController = async () => {
-  if (window.location.pathname == "/tours.html") {
-    spinner.showSpinner();
+  try {
+    if (window.location.pathname == "/tours.html") {
+      const spinner = new Spinner();
+      const pageNumber = getPageNumberFromQuery();
+      const itemLimit = 3;
 
-    const itemLimit = 3;
-    const pageNumber = getPageNumberFromQuery();
-    const tourView = new TourView();
+      spinner.showSpinner();
 
-    pageNumber && setPageNumber(pageNumber, tourView);
+      const tourView = new TourView();
+      tourView.loadMoreItems(callAPI, tourView);
 
-    // tourView.nextPageBtn.addEventListener("click", async function () {
-    //   getPage("next", tourView);
-    // });
-
-    // tourView.prevPageBtn.addEventListener("click", async function () {
-    //   getPage("previous", tourView);
-    // });
-
-    tourView.loadMoreBtn.addEventListener("click", async function () {
-      tourView.updateUIForLoadBtn();
-      tourView.loadMoreBtn.dataset.page++;
-      const pageNumber = tourView.loadMoreBtn.dataset.page;
       const response = await callAPI(`/api/tour?page=${pageNumber ? pageNumber : 1}&limit=${itemLimit}`, "GET");
+      tourView.showMarkup(response);
 
-      response.data.tours.forEach((tour) => {
-        tourView.generateMarkup(tour);
-      });
-      tourView.resetUIForLoadBtn();
-    });
-
-    const response = await callAPI(`/api/tour?page=${pageNumber ? pageNumber : 1}&limit=${itemLimit}`, "GET");
-
-    response.data.tours.forEach((tour) => {
-      tourView.generateMarkup(tour);
-    });
-
-    spinner.hideSpinner();
+      spinner.hideSpinner();
+    }
+  } catch (err) {
+    // FIXME:
   }
 };

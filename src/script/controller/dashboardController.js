@@ -1,29 +1,25 @@
 import { DashboardView } from "../view/dashboardView";
 import { logout } from "./userController";
 import { Spinner } from "../view/spinner";
-import { IndexView } from "../view/indexView";
 import { userData } from "../model/model";
 import { isLoggedIn } from "./authController";
 import { updatePassword, updateName, updateEmail } from "./userController";
 
-const passwordUpdateHandler = async (e, dashboardView) => {
-  e.preventDefault();
+const passwordUpdateHandler = async (dashboardView) => {
   dashboardView.updatePasswordBtnUI();
   const input = dashboardView.getPasswordInput();
   await updatePassword(input);
   dashboardView.resetPasswordBtnUI();
 };
 
-const nameUpdateHandler = async (e, dashboardView) => {
-  e.preventDefault();
+const nameUpdateHandler = async (dashboardView) => {
   dashboardView.updateNameBtnUI();
   const input = dashboardView.getNameInput();
   await updateName(input);
   dashboardView.resetNameBtnUI();
 };
 
-const emailUpdateHandler = async (e, dashboardView) => {
-  e.preventDefault();
+const emailUpdateHandler = async (dashboardView) => {
   dashboardView.updateEmailBtnUI();
   const input = dashboardView.getEmailInput();
   await updateEmail(input);
@@ -38,31 +34,8 @@ export const dashBoardController = () => {
 
     const spinner = new Spinner();
     const dashboardView = new DashboardView();
-
     dashboardView.setInput(userData);
-
-    //EVENT LISTENERS
-
-    dashboardView.passwordUpdateBtn.addEventListener(
-      "click",
-      async function (e) {
-        passwordUpdateHandler(e, dashboardView);
-      }
-    );
-
-    dashboardView.logoutBtn.addEventListener("click", async function () {
-      const indexView = new IndexView();
-      await logout(indexView);
-    });
-
-    dashboardView.nameUpdateBtn.addEventListener("click", async function (e) {
-      nameUpdateHandler(e, dashboardView);
-    });
-
-    dashboardView.emailUpdateBtn.addEventListener("click", async function (e) {
-      emailUpdateHandler(e, dashboardView);
-    });
-
+    dashboardView.updateData(passwordUpdateHandler, nameUpdateHandler, emailUpdateHandler, logout, view);
     spinner.hideSpinner();
   }
 };

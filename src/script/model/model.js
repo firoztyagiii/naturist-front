@@ -1,4 +1,6 @@
-export const _DOMAIN = "https://naturist.herokuapp.com";
+export const RAZORPAY_KEY = "rzp_test_iQXxC9LBZRPfH9";
+// export const _DOMAIN = "https://naturist.herokuapp.com";
+export const _DOMAIN = "http://localhost:9090";
 
 export let isUserLoggedIn = false;
 export let userData = {};
@@ -19,6 +21,6 @@ export const callAPI = async (url, type, payload) => {
     const response = await res.json();
     return response;
   } catch (err) {
-    console.log(err);
+    throw err;
   }
 };

@@ -1,4 +1,5 @@
 import { _DOMAIN } from "../model/model";
+import { payment } from "../controller/paymentController";
 
 export class TourDetailView {
   constructor() {
@@ -115,7 +116,7 @@ export class TourDetailView {
 
         const markup = `<div class="review">
         <div class="review-info">
-          <img src="./src/img/test.jpg" alt="reviewer-img">
+          <img src="${_DOMAIN}/${rev.user.profilePhoto}" alt="reviewer-img">
           <p class="reviewer-name">${rev.user.name}</p>
         </div>
         <p class="review-text">${rev.review}</p>
@@ -144,5 +145,18 @@ export class TourDetailView {
   getBookBtn() {
     const bookBtn = document.querySelector(".book-tour-btn");
     return bookBtn;
+  }
+
+  bookingHandler(callAPI) {
+    const bookBtn = document.querySelector(".book-tour-btn");
+    bookBtn.addEventListener("click", async () => {
+      bookBtn.textContent = "Processing...";
+      const user = await callAPI("/api/user/about-me", "GET");
+      if (user.status == "Fail") {
+        window.location.href = "/login.html";
+      }
+      const id = window.location.search.split("=")[1];
+      await payment(id);
+    });
   }
 }
