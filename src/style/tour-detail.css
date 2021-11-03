@@ -229,7 +229,7 @@
   object-fit: cover;
 }
 
-.fa-bookmark {
+.bookmark-icon {
   color: #fff;
   position: absolute;
   top: 3%;
@@ -237,7 +237,7 @@
   font-size: 1.7rem;
 }
 
-.fa-bookmark:hover {
+.bookmark-icon:hover {
   cursor: pointer;
 }
 

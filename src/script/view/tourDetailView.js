@@ -6,10 +6,14 @@ export class TourDetailView {
     this.tourContainer = document.querySelector(".tour-container");
   }
 
+  addOrRemove() {
+    return document.querySelector(".bookmark-icon").classList.contains("added");
+  }
+
   generateMarkup(tour, isBookmarked) {
     const reviewLength = tour.reviews.length;
     const markup = `<div class="tour">
-        <i class="${isBookmarked ? "fas" : "far"} fa-bookmark"></i>
+        <i class="${isBookmarked ? "fas added" : "far"} fa-bookmark bookmark-icon"></i>
         <div class="tour-info">
         <div class="tour-detail-title">
         <span>${tour.name.toUpperCase()}</span>
@@ -138,8 +142,14 @@ export class TourDetailView {
     });
   }
 
-  updateBookmarkUI() {
-    document.querySelector(".fa-bookmark").classList.replace("far", "fas");
+  updateBookmarkUI(type) {
+    if (type === "spinner") {
+      document.querySelector(".bookmark-icon").className = "fas fa-spinner fa-spin bookmark-icon";
+    } else if (type === "added") {
+      document.querySelector(".bookmark-icon").className = "fas added fa-bookmark bookmark-icon";
+    } else if (type === "removed") {
+      document.querySelector(".bookmark-icon").className = "far fa-bookmark bookmark-icon";
+    }
   }
 
   getBookBtn() {

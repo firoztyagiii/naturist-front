@@ -7,19 +7,21 @@ const popup = new Popup();
 const tourDetailView = new TourDetailView();
 const spinner = new Spinner();
 
-const addTourToBookmark = async (tourId) => {
+const manageBookmark = async (tourId) => {
   try {
-    spinner.showSpinner();
-    const response = await callAPI("/api/bookmark", "POST", { tourId });
+    const isBookmarked = tourDetailView.addOrRemove();
+    tourDetailView.updateBookmarkUI("spinner");
+    const response = await callAPI("/api/bookmark", isBookmarked ? "DELETE" : "POST", { tourId });
+
     if (response.status === "success") {
-      tourDetailView.updateBookmarkUI();
+      popup.showPopup("Tour added to your bookmarks");
+      tourDetailView.updateBookmarkUI("added");
+    } else if (!response.status) {
+      popup.showPopup("Tour has been removed from your bookmarks");
+      tourDetailView.updateBookmarkUI("removed");
     }
-    spinner.hideSpinner();
-    popup.showPopup(response.message);
     popup.hidePopup();
-    spinner.hideSpinner();
   } catch (err) {
-    spinner.hideSpinner();
     // FIXME:
   }
 };
@@ -50,7 +52,7 @@ export const tourDetailController = async () => {
 
       spinner.showSpinner();
       await fetchAndShowTour(id, tourDetailView);
-      await tourDetailView.addToBookmark(addTourToBookmark, id);
+      await tourDetailView.addToBookmark(manageBookmark, id);
 
       tourDetailView.bookingHandler(callAPI);
     }

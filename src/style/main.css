@@ -241,3 +241,9 @@ html {
     transform: rotate(360deg);
   }
 }
+
+.bookmark-icon {
+  position: absolute;
+  display: block;
+  color: #fff;
+}
