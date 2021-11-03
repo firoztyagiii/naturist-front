@@ -4,15 +4,17 @@ export class Popup {
   showPopup(text) {
     const popup = document.querySelector(".popup");
     popup.textContent = text;
-    popup.style.display = "block";
     popup.style.opacity = "1";
+    popup.style.zIndex = "100";
   }
 
   hidePopup() {
     setTimeout(() => {
       const popup = document.querySelector(".popup");
-      popup.style.display = "none";
       popup.style.opacity = "0";
+      setTimeout(() => {
+        popup.style.zIndex = "-10";
+      }, 500);
     }, 3000);
   }
 }

@@ -175,3 +175,7 @@
   text-decoration: none;
   color: #fff;
 }
+
+.container {
+  position: relative;
+}

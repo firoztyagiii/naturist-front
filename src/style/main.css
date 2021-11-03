@@ -210,18 +210,18 @@ html {
 /*//////////////// POPUP /////////////*/
 
 .popup {
-  background-color: #2ecc71;
+  background-image: linear-gradient(var(--main-color), var(--secondary-color));
   position: absolute;
-  top: 17%;
+  text-align: center;
+  top: 20%;
   left: 50%;
   color: #fff;
   border-radius: 2px;
   padding: 1rem;
   transform: translate(-50%, -50%);
-  z-index: 100;
   opacity: 0;
-  display: none;
-  transition: all 0.3s;
+  transition: opacity 0.5s;
+  z-index: -10;
 }
 
 .loader {

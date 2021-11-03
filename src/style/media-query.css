@@ -124,13 +124,33 @@
   }
 }
 
+@media (max-width: 900px) {
+  .dashboard-container {
+    max-width: 90%;
+  }
+}
+
 @media (max-width: 800px) {
   .tour-container {
     grid-template-columns: 40% 40%;
   }
 
+  .dashboard-container {
+    max-width: 80%;
+  }
+
+  .password-account-form-title,
+  .account-form-title {
+    font-size: 1.5rem;
+  }
+
+  .password-form,
+  .account-form {
+    max-width: 80%;
+  }
+
   .form {
-    max-width: 100%;
+    max-width: 90%;
   }
 
   .form-box {
@@ -163,6 +183,32 @@
   .hero-title {
     font-size: 3.5rem;
   }
+
+  .dashboard {
+    grid-template-columns: 90%;
+    justify-content: center;
+  }
+
+  .dashboard-left {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    height: auto;
+    padding: 1rem 0rem;
+  }
+
+  .dashboard-navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .dashboard-navigation-link p,
+  .dashboard-navigation-link a {
+    display: none;
+  }
+
   .bars {
     display: inline-block;
   }
@@ -197,12 +243,33 @@
     flex-direction: column;
   }
 
+  .dashboard {
+    grid-template-columns: 95%;
+  }
+
   .booking-text {
     margin-bottom: 1.5rem;
   }
 
+  /* .btn-save-setting {
+    padding: ;
+  } */
+
   .booking-section {
     padding: 4rem 0rem;
+  }
+
+  .dashboard-container {
+    max-width: 100%;
+  }
+
+  .dashboard-right-container {
+    width: 100%;
+  }
+
+  .popup {
+    padding: 0.7rem;
+    font-size: 1rem;
   }
 
   .book-tour-btn {

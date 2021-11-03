@@ -35,7 +35,7 @@ export const dashBoardController = () => {
     const spinner = new Spinner();
     const dashboardView = new DashboardView();
     dashboardView.setInput(userData);
-    dashboardView.updateData(passwordUpdateHandler, nameUpdateHandler, emailUpdateHandler, logout, view);
+    dashboardView.updateData(passwordUpdateHandler, nameUpdateHandler, emailUpdateHandler, logout, dashboardView);
     spinner.hideSpinner();
   }
 };
