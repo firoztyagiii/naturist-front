@@ -189,10 +189,6 @@
   color: #fff;
 }
 
-.container {
-  position: relative;
-}
-
 .account-photo {
   display: flex;
   align-items: center;
