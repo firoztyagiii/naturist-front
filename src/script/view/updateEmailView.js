@@ -1,11 +1,6 @@
 export class UpdateEmailView {
   constructor() {}
-  getInput() {
-    const OTP = document.querySelector("[name='update-email']").value;
-    return {
-      OTP,
-    };
-  }
+
   updateUI() {
     const sendOtpText = document.querySelector(".send-otp-text");
     const loader = document.querySelector(".loader");

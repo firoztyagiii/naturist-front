@@ -21,7 +21,10 @@ const updateEmailHandler = async (token) => {
 
 export const updateEmailController = () => {
   if (window.location.pathname === "/update-email.html") {
-    const updateEmailView = new UpdateEmailView();
-    updateEmailView.updateEmail(updateEmailHandler);
+    const token = window.location.search.split("=")[1];
+    if (!token) {
+      return (window.location.href = "/");
+    }
+    updateEmailHandler(token);
   }
 };
