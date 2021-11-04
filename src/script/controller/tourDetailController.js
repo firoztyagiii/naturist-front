@@ -12,12 +12,13 @@ const manageBookmark = async (tourId) => {
     const isBookmarked = tourDetailView.addOrRemove();
     tourDetailView.updateBookmarkUI("spinner");
     const response = await callAPI("/api/bookmark", isBookmarked ? "DELETE" : "POST", { tourId });
-
+    if (response.status === "Fail") {
+      popup.showPopup(response.message);
+      tourDetailView.updateBookmarkUI("removed");
+    }
     if (response.status === "success") {
-      popup.showPopup("Tour added to your bookmarks");
       tourDetailView.updateBookmarkUI("added");
     } else if (!response.status) {
-      popup.showPopup("Tour has been removed from your bookmarks");
       tourDetailView.updateBookmarkUI("removed");
     }
     popup.hidePopup();

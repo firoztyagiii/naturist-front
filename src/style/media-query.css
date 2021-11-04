@@ -149,6 +149,10 @@
     max-width: 80%;
   }
 
+  .dashboard {
+    grid-template-columns: 40% 1fr;
+  }
+
   .form {
     max-width: 90%;
   }
@@ -193,13 +197,17 @@
     justify-content: center;
   }
 
+  .dashboard-right-bottom {
+    margin-bottom: 2rem;
+  }
+
   .dashboard-left {
     position: fixed;
     bottom: 0;
     width: 100%;
     left: 0;
     height: auto;
-    padding: 1rem 0rem;
+    padding: 0.5rem 0rem;
   }
 
   .dashboard-navigation {
@@ -208,7 +216,17 @@
     justify-content: space-evenly;
   }
 
-  .dashboard-navigation-link p,
+  .dashboard-navigation-link p {
+    font-size: 0.9rem;
+  }
+
+  .dashboard-navigation-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
   .dashboard-navigation-link a {
     display: none;
   }
@@ -263,6 +281,18 @@
     padding-bottom: 0rem;
   } */
 
+  .form-title {
+    font-size: 1.2rem;
+  }
+
+  .login-btn-text {
+    font-size: 0.9rem;
+  }
+
+  .form-box {
+    max-width: 90%;
+  }
+
   .booking-section {
     padding: 4rem 0rem;
   }
@@ -307,6 +337,13 @@
 }
 
 @media (max-width: 400px) {
+  .dashboard-right-bottom {
+    margin-bottom: 1rem;
+  }
+
+  .form {
+    padding: 2rem 2rem;
+  }
   .tour-container {
     grid-template-columns: 90%;
     row-gap: 5rem;
@@ -317,6 +354,9 @@
   .form-box {
     max-width: 100%;
     padding: 0rem 1rem;
+  }
+  .dashboard-navigation-link p {
+    display: none;
   }
 }
 

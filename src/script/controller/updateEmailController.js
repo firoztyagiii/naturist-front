@@ -1,6 +1,8 @@
 import { UpdateEmailView } from "../view/updateEmailView";
 import { callAPI } from "../model/model";
 import { Popup } from "../view/popup";
+import { logout } from "./userController";
+import { IndexView } from "../view/indexView";
 
 const updateEmailHandler = async (input, token) => {
   try {
@@ -9,9 +11,10 @@ const updateEmailHandler = async (input, token) => {
     popup.showPopup(response.message);
     popup.hidePopup();
     if (response.status === "success") {
-      setTimeout(() => {
-        window.location.href = "/login.html";
-      }, 2000);
+      setTimeout(async () => {
+        const indexView = new IndexView(indexView);
+        await logout();
+      }, 1700);
     }
   } catch (err) {
     // FIXME:

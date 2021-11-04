@@ -8,8 +8,12 @@ export const accountActivationController = async () => {
 
       const response = await callAPI(`/api/user/activate-account?verify=${token}`, "GET");
 
-      if (response.status === "success") window.location.href = "/login.html?activated=true";
-      else document.write(response.message);
+      if (response.status === "success") {
+        window.location.href = "/login.html?activated=true";
+        setTimeout(() => {
+          window.history.pushState("", "", "/login.html");
+        }, 600);
+      } else document.write(response.message);
     }
   } catch (err) {
     // FIXME: add error
