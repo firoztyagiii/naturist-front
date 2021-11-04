@@ -1,6 +1,6 @@
 import { Spinner } from "../view/spinner";
 import { Popup } from "../view/popup";
-import { callAPI } from "../model/model";
+import { callAPI, _DOMAIN } from "../model/model";
 
 const spinner = new Spinner();
 const popup = new Popup();
@@ -91,13 +91,10 @@ export const updateEmail = async (input) => {
 
 export const updatePhoto = async (form) => {
   try {
-    const response = await fetch("http://localhost:9090/api/user/update-me/photo", {
+    const response = await fetch(`${_DOMAIN}/api/user/update-me/photo`, {
       method: "POST",
       body: form,
-      // headers: { "Content-Type": "multipart/form-data" },
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
+    });
     popup.showPopup(response.message);
     popup.hidePopup();
   } catch (err) {
