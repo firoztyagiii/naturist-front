@@ -7,6 +7,7 @@ import { IndexView } from "../view/indexView";
 const updateEmailHandler = async (token) => {
   try {
     const response = await callAPI(`/api/user/update-email?token=${token}`, "GET");
+    console.log("EMAIL CHANGE RESPONSE --->", response);
     if (response.status === "success") {
       const indexView = new IndexView(indexView);
       await logout(indexView);
