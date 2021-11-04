@@ -10,9 +10,6 @@ export const accountActivationController = async () => {
 
       if (response.status === "success") {
         window.location.href = "/login.html?activated=true";
-        setTimeout(() => {
-          window.history.pushState("", "", "/login.html");
-        }, 600);
       } else document.write(response.message);
     }
   } catch (err) {

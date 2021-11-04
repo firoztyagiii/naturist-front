@@ -4,17 +4,14 @@ import { Popup } from "../view/popup";
 import { logout } from "./userController";
 import { IndexView } from "../view/indexView";
 
-const updateEmailHandler = async (input, token) => {
+const updateEmailHandler = async (token) => {
   try {
-    const response = await callAPI(`/api/user/update-email?token=${token}`, "POST", input);
-    const popup = new Popup();
-    popup.showPopup(response.message);
-    popup.hidePopup();
+    const response = await callAPI(`/api/user/update-email?token=${token}`, "GET");
     if (response.status === "success") {
-      setTimeout(async () => {
-        const indexView = new IndexView(indexView);
-        await logout();
-      }, 1700);
+      const indexView = new IndexView(indexView);
+      await logout(indexView);
+    } else {
+      document.write("Invalid token!");
     }
   } catch (err) {
     // FIXME:

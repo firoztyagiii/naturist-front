@@ -10,6 +10,7 @@ export const loginController = () => {
     setTimeout(() => {
       popup.showPopup("Account verified");
       popup.hidePopup();
+      window.history.pushState("", "", "/login.html");
     }, 500);
   }
 

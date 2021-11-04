@@ -19,7 +19,7 @@ const resetPasswordHandler = async (input, token) => {
       const indexView = new IndexView();
       setTimeout(() => {
         logout(indexView);
-      }, 1700);
+      }, 1000);
     }
   } catch (err) {
     // FIXME:

@@ -1,7 +1,5 @@
 export class UpdateEmailView {
-  constructor() {
-    this.otpBtn = document.querySelector(".send-otp-btn");
-  }
+  constructor() {}
   getInput() {
     const OTP = document.querySelector("[name='update-email']").value;
     return {
@@ -26,15 +24,6 @@ export class UpdateEmailView {
     if (!token) {
       return (window.location.href = "/");
     }
-    this.otpBtn.addEventListener("click", async () => {
-      try {
-        this.updateUI();
-        const input = this.getInput();
-        await handler(input, token);
-        this.resetUI();
-      } catch (err) {
-        // FIXME:
-      }
-    });
+    handler(token);
   }
 }
