@@ -184,6 +184,10 @@
     font-size: 3.5rem;
   }
 
+  .dashboard-navigation-link:hover {
+    border-left: none;
+  }
+
   .dashboard {
     grid-template-columns: 90%;
     justify-content: center;
@@ -253,6 +257,10 @@
 
   /* .btn-save-setting {
     padding: ;
+  } */
+
+  /* .tour-facts-right {
+    padding-bottom: 0rem;
   } */
 
   .booking-section {

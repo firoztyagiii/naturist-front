@@ -18,9 +18,17 @@
     <script src="./src/script/app.js" defer></script>
   </head>
   <body>
-    <div class="container">
-      <div class="popup">""</div>
+    <div class="popup">""</div>
+    <div class="bg">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
 
+    <div class="container">
       <div class="bg hidden">
         <div class="lds-ring">
           <div></div>
@@ -67,9 +75,9 @@
                 <i class="far fa-star"></i>
                 <p>My Reviews</p>
               </div>
-              <div class="dashboard-navigation-link">
-                <i class="far fa-bookmark"></i>
-                <a href="/my-bookings.html">My Bookings</a>
+              <div class="dashboard-navigation-link bookmark-btn">
+                <i class="fas fa-shopping-bag"></i>
+                <p>My Bookings</p>
               </div>
               <div class="dashboard-navigation-link">
                 <i class="far fa-address-card"></i>
@@ -84,7 +92,7 @@
           <div class="dashboard-right">
             <div class="dashboard-right-container">
               <div class="dashboard-right-top">
-                <form class="account-form">
+                <form class="account-form" enctype="multipart/form-data">
                   <p class="account-form-title">Your Account Settings</p>
                   <div class="account-form-name-input">
                     <label for="account-name" class="account-name">Name</label>
@@ -96,6 +104,12 @@
                     <input id="account-email" type="email" name="account-email" />
                   </div>
                   <a href="" class="btn-save-setting email-save-btn">Update Email</a>
+                  <div class="account-photo">
+                    <img src="./src/img/1.jpg" alt="" />
+                    <label class="photo-label" for="photo">Upload Image</label>
+                    <input id="photo" name="photo" type="file" accept="image/*" />
+                  </div>
+                  <a href="" class="btn-save-setting photo-save-btn">Update Phto</a>
                 </form>
               </div>
               <div class="dashboard-right-bottom">

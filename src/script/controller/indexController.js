@@ -29,7 +29,7 @@ const init = async () => {
     signUpController();
     updateEmailController();
     twoFaController();
-    spinner.hideSpinner();
+    // spinner.hideSpinner();
   } catch (err) {
     console.log(err);
   }

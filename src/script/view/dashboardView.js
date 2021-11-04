@@ -1,18 +1,23 @@
 import { IndexView } from "./indexView";
-
+import { _DOMAIN } from "../model/model";
 export class DashboardView {
   constructor() {
     this.passwordUpdateBtn = document.querySelector(".password-save-btn");
     this.logoutBtn = document.querySelector(".log-out-btn");
     this.nameUpdateBtn = document.querySelector(".name-save-btn");
     this.emailUpdateBtn = document.querySelector(".email-save-btn");
+    this.bookmarkBtn = document.querySelector(".bookmark-btn");
+    this.photoUpdateBtn = document.querySelector(".photo-save-btn");
   }
 
   setInput(user) {
+    console.log(user);
     const accountName = document.getElementById("account-name");
     accountName.value = user.data.user.name;
     const accountEmail = document.getElementById("account-email");
     accountEmail.value = user.data.user.email;
+    const accountPhoto = document.querySelector(".account-photo img");
+    accountPhoto.src = `${_DOMAIN}/${user.data.user.photo}`;
   }
 
   getPasswordInput() {
@@ -65,7 +70,28 @@ export class DashboardView {
     this.emailUpdateBtn.textContent = "Update Email";
   }
 
-  updateData(passwordUpdateHandler, nameUpdateHandler, emailUpdateHandler, logout, view) {
+  updatePhotoBtnUI() {
+    this.photoUpdateBtn.textContent = "Updating...";
+  }
+  resetPhotoBtnUI() {
+    this.photoUpdateBtn.textContent = "Update Photo";
+  }
+
+  getImageFile() {
+    const img = document.getElementById("photo");
+    const [file] = img.files;
+    return file;
+  }
+
+  imagePreview() {
+    const img = document.getElementById("photo");
+    img.addEventListener("change", () => {
+      const file = this.getImageFile();
+      document.querySelector(".account-photo img").src = URL.createObjectURL(file);
+    });
+  }
+
+  updateData(passwordUpdateHandler, nameUpdateHandler, emailUpdateHandler, photoUpdateHandler, logout, view) {
     this.passwordUpdateBtn.addEventListener("click", (e) => {
       e.preventDefault();
       passwordUpdateHandler(view);
@@ -81,6 +107,13 @@ export class DashboardView {
     this.logoutBtn.addEventListener("click", async () => {
       const indexView = new IndexView();
       await logout(indexView);
+    });
+    this.bookmarkBtn.addEventListener("click", () => {
+      window.location.href = "/my-bookings.html";
+    });
+    this.photoUpdateBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      photoUpdateHandler(view);
     });
   }
 }

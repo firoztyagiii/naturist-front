@@ -88,3 +88,19 @@ export const updateEmail = async (input) => {
     // FIXME:
   }
 };
+
+export const updatePhoto = async (form) => {
+  try {
+    const response = await fetch("http://localhost:9090/api/user/update-me/photo", {
+      method: "POST",
+      body: form,
+      // headers: { "Content-Type": "multipart/form-data" },
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+    popup.showPopup(response.message);
+    popup.hidePopup();
+  } catch (err) {
+    // FIXME:
+  }
+};

@@ -10,7 +10,9 @@ export const myBookingsController = async () => {
         const popup = new Popup();
         popup.showPopup("Tour has been added to your bookings");
         popup.hidePopup();
-        window.history.replaceState("", "", "/my-bookings.html");
+        setTimeout(() => {
+          window.history.replaceState("", "", "/my-bookings.html");
+        }, 2000);
       }
       const spinner = new Spinner();
       spinner.showSpinner();
