@@ -210,9 +210,9 @@ html {
 
 .popup {
   background-image: linear-gradient(var(--main-color), var(--secondary-color));
-  position: absolute;
+  position: fixed;
   text-align: center;
-  top: 1.2rem;
+  top: 3rem;
   left: 50%;
   color: #fff;
   border-radius: 2px;
@@ -245,4 +245,17 @@ html {
   position: absolute;
   display: block;
   color: #fff;
+}
+
+.user-image {
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 50%;
+}
+
+.user-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }

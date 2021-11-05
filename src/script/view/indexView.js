@@ -1,4 +1,5 @@
 import { Spinner } from "./spinner";
+import { _DOMAIN } from "../model/model";
 
 const spinner = new Spinner();
 
@@ -11,9 +12,11 @@ export class IndexView {
     const initNavbar = document.querySelector(".user-not-loggedin");
     const toShowNavBar = document.querySelector(".user-loggedin");
     const username = document.querySelector(".user-name");
-    username.innerText = `Welcome, ${userData.data.user.name.split(" ")[0]}`;
     initNavbar.classList.add("hidden");
     toShowNavBar.classList.remove("hidden");
+    const userImg = document.querySelector(".user-image");
+    username.innerText = `Welcome, ${userData.data.user.name.split(" ")[0]}`;
+    userImg.src = `${_DOMAIN}/${userData.data.user.photo}`;
     spinner.hideSpinner();
   }
 

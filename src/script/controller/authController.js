@@ -15,9 +15,11 @@ export const checkLogin = async () => {
       isLoggedIn = true;
       userData = user;
     } else {
+      isLoggedIn = false;
       spinner.hideSpinner();
     }
   } catch (err) {
+    isLoggedIn = false;
     // FIXME: add error handler
   }
 };

@@ -11,7 +11,6 @@ export class DashboardView {
   }
 
   setInput(user) {
-    console.log(user);
     const accountName = document.getElementById("account-name");
     accountName.value = user.data.user.name;
     const accountEmail = document.getElementById("account-email");

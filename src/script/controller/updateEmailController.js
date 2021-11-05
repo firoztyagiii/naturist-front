@@ -1,18 +1,13 @@
-import { UpdateEmailView } from "../view/updateEmailView";
 import { callAPI } from "../model/model";
-import { Popup } from "../view/popup";
-import { logout } from "./userController";
-import { IndexView } from "../view/indexView";
+import { Spinner } from "../view/spinner";
 
 const updateEmailHandler = async (token) => {
   try {
     const response = await callAPI(`/api/user/update-email?token=${token}`, "GET");
-    console.log("EMAIL CHANGE RESPONSE --->", response);
-    if (response.status === "success") {
-      const indexView = new IndexView(indexView);
-      await logout(indexView);
-    } else {
-      document.write("Invalid token!");
+    if (response.status == "success") {
+      window.location.href = "/";
+    } else if (response.status === "Fail") {
+      document.write("Invalid token or expired!");
     }
   } catch (err) {
     // FIXME:
@@ -21,6 +16,8 @@ const updateEmailHandler = async (token) => {
 
 export const updateEmailController = () => {
   if (window.location.pathname === "/update-email.html") {
+    const spinner = new Spinner();
+    spinner.hideSpinner();
     const token = window.location.search.split("=")[1];
     if (!token) {
       return (window.location.href = "/");
