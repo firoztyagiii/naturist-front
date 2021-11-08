@@ -95,7 +95,8 @@ export const updatePhoto = async (form) => {
       method: "POST",
       body: form,
     });
-    popup.showPopup(response.message);
+    const realres = await response.json();
+    popup.showPopup(realres.message);
     popup.hidePopup();
   } catch (err) {
     // FIXME:

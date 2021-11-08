@@ -1,4 +1,5 @@
 import { _DOMAIN } from "../model/model";
+import { HOSTING } from "../model/model";
 import { getPageNumberFromQuery } from "../controller/pagination";
 
 export class TourView {
@@ -11,7 +12,7 @@ export class TourView {
     const markup = ` <div class="tour">
     <div class="tour-header">
       <span class="image-overlay"></span>
-      <img src="${_DOMAIN}/${tour.headImg}" alt="" class="tour-img">
+      <img src="${HOSTING}${tour.headImg}" alt="" class="tour-img">
     </div>
     <div class="tour-content">
       <p class="tour-title">${tour.name}</p>

@@ -1,6 +1,5 @@
 import { Spinner } from "./spinner";
-import { _DOMAIN } from "../model/model";
-
+import { HOSTING } from "../model/model";
 const spinner = new Spinner();
 
 export class IndexView {
@@ -16,7 +15,7 @@ export class IndexView {
     toShowNavBar.classList.remove("hidden");
     const userImg = document.querySelector(".user-image");
     username.innerText = `Welcome, ${userData.data.user.name.split(" ")[0]}`;
-    userImg.src = `${_DOMAIN}/${userData.data.user.photo}`;
+    userImg.src = `${HOSTING}${userData.data.user.photo}`;
     spinner.hideSpinner();
   }
 

@@ -1,5 +1,6 @@
 import { _DOMAIN } from "../model/model";
 import { payment } from "../controller/paymentController";
+import { HOSTING } from "../model/model";
 
 export class TourDetailView {
   constructor() {
@@ -67,18 +68,11 @@ export class TourDetailView {
           </p>
         </div>
     </div>
-    <div class="slider ">
-          <i class="fas fa-arrow-left arrow left-arrow"></i>
-          <i class="fas fa-arrow-right arrow right-arrow"></i>
-          <img class="slider-img" src="./src/img/1.jpg" data-img-number="1" alt="">
-          <img class="slider-img" src="./src/img/2.jpg" data-img-number="2" alt="">
-          <img class="slider-img" src="./src/img/3.jpg" data-img-number="3" alt="">
-          
-        </div>
+   
     <div class="tour-images">
-      <img src="./src/img/1.jpg" alt="">
-      <img src="./src/img/2.jpg" alt="">
-      <img src="./src/img/3.jpg" alt="">
+      <img src="${HOSTING}1.jpg" alt="">
+      <img src="${HOSTING}2.jpg" alt="">
+      <img src="${HOSTING}3.jpg" alt="">
     </div>
     
     <div class="tour-review">
@@ -108,7 +102,7 @@ export class TourDetailView {
     tourImg.style.backgroundImage = `linear-gradient(
       rgba(22, 160, 132, 0.8),
       rgba(46, 204, 112, 0.8)
-    ), url("${_DOMAIN}/${tour.headImg}")`;
+    ), url("${HOSTING}${tour.headImg}")`;
 
     if (reviewLength != 0) {
       const tourReviewContainer = document.querySelector(".tour-review");
@@ -120,7 +114,7 @@ export class TourDetailView {
 
         const markup = `<div class="review">
         <div class="review-info">
-          <img src="${_DOMAIN}/${rev.user.profilePhoto}" alt="reviewer-img">
+          <img src="${HOSTING}${rev.user.profilePhoto}" alt="reviewer-img">
           <p class="reviewer-name">${rev.user.name}</p>
         </div>
         <p class="review-text">${rev.review}</p>

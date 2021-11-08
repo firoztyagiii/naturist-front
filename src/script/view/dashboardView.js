@@ -1,5 +1,6 @@
 import { IndexView } from "./indexView";
 import { _DOMAIN } from "../model/model";
+import { HOSTING } from "../model/model";
 export class DashboardView {
   constructor() {
     this.passwordUpdateBtn = document.querySelector(".password-save-btn");
@@ -16,7 +17,7 @@ export class DashboardView {
     const accountEmail = document.getElementById("account-email");
     accountEmail.value = user.data.user.email;
     const accountPhoto = document.querySelector(".account-photo img");
-    accountPhoto.src = `${_DOMAIN}/${user.data.user.photo}`;
+    accountPhoto.src = `${HOSTING}${user.data.user.photo}`;
   }
 
   getPasswordInput() {
