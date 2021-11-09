@@ -70,9 +70,9 @@ export class TourDetailView {
     </div>
    
     <div class="tour-images">
-      <img src="${HOSTING}1.jpg" alt="">
-      <img src="${HOSTING}2.jpg" alt="">
-      <img src="${HOSTING}3.jpg" alt="">
+      <img src="${tour.images[0]}" alt="">
+      <img src="${tour.images[1]}" alt="">
+      <img src="${tour.images[2]}" alt="">
     </div>
     
     <div class="tour-review">
@@ -80,7 +80,7 @@ export class TourDetailView {
     </div>
     <div class="booking-section">
     <div class="booking-container">
-    <img src="./src/img/1.jpg" alt="">
+    <img src="${HOSTING}${tour.headImg}" alt="">
   <div class="booking">
     <h1 class="booking-text">WHAT ARE YOU WAITING FOR?</h1>
     <p>7 days. 1 adventure. Infinite memories. Make it yours today!</p>
