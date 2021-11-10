@@ -59,7 +59,10 @@ export class TourDetailView {
           </div>
         </div>
         <div class="tour-facts-right">
-          <p class="tour-quick-facts">About the Mountain Biking</p>
+          <p class="tour-quick-facts">About ${tour.name
+            .split(" ")
+            .map((word) => `${word[0].toUpperCase()}${word.slice(1)}`)
+            .join(" ")}</p>
           <p class="tour-description">
           ${tour.info}
           </p>
@@ -161,6 +164,20 @@ export class TourDetailView {
       }
       const id = window.location.search.split("=")[1];
       await payment(id);
+    });
+  }
+  addImagePopup() {
+    const imageContainer = document.querySelector(".tour-images");
+    const imagePopup = document.querySelector(".image-popup");
+    const img = document.querySelector(".image-popup-container img");
+    imageContainer.addEventListener("click", (e) => {
+      if (!e.target.src) return;
+      const src = e.target.src;
+      img.src = src;
+      imagePopup.classList.remove("hidden");
+    });
+    imagePopup.addEventListener("click", function () {
+      this.classList.add("hidden");
     });
   }
 }

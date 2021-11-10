@@ -30,10 +30,11 @@
     <header class="header">
       <nav class="nav">
         <a href="./index.html" class="logo">Naturist</a>
-        <ul class="user-not-loggedin list">
+        <ul class="user-not-loggedin list slide">
           <li class="list-item">
             <a href="./tours.html" class="list-item-link">Tour</a>
           </li>
+
           <li class="list-item">
             <a href="./login.html" class="list-item-link">Login</a>
           </li>
@@ -41,18 +42,28 @@
             <a href="./signup.html" class="list-item-link signup-link">Signup</a>
           </li>
         </ul>
-        <ul class="list user-loggedin hidden">
+        <ul class="list user-loggedin hidden slide">
           <li class="list-item">
             <a href="./tours.html" class="list-item-link">Tour</a>
           </li>
+
           <li class="list-item user-info">
             <a href="./dashboard.html" class="list-item-link user-name">Welcome</a>
             <img src="" alt="" class="user-image" />
           </li>
         </ul>
+        <i class="fas fa-bars bars"></i>
       </nav>
     </header>
+    <div class="search">
+      <div class="search-container">
+        <input type="text" id="search" class="search-input" placeholder="Search by name or location">
+        <label class="search-label" for="search">Search</label>
+      </div>
+    </div>
+
     <div class="tour-container">
+      
     </div>
     <div class="pagination">
       <button data-page="1" class="load-more">

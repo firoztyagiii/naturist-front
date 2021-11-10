@@ -11,6 +11,8 @@ import { signUpController } from "./signUpController";
 import { tourDetailController } from "./tourDetailController";
 import { twoFaController } from "./2faController";
 import { myBookingsController } from "./myBookingsController";
+import { navBar } from "./utils/navbar";
+import { errorController } from "./errorController";
 
 const spinner = new Spinner();
 
@@ -18,6 +20,7 @@ const init = async () => {
   try {
     spinner.showSpinner();
     await checkLogin();
+    navBar();
     accountActivationController();
     tourController();
     myBookingsController();
@@ -29,6 +32,7 @@ const init = async () => {
     signUpController();
     updateEmailController();
     twoFaController();
+    errorController();
     // spinner.hideSpinner();
   } catch (err) {
     console.log(err);

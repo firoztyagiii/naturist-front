@@ -5,7 +5,8 @@
   position: relative;
   background-image: linear-gradient(rgba(66, 212, 127, 0.438), rgba(39, 174, 95, 0.5)),
     url(https://naturist.sgp1.digitaloceanspaces.com/hero.jpg);
-  height: calc(90vh - 1rem);
+  /* height: calc(90vh - 1rem); */
+  min-height: 100vh;
   background-size: cover;
   background-position: center;
 }

@@ -28,9 +28,7 @@ export const login = async (loginView) => {
       loginView.defaultUI();
       window.location.href = "/";
     }
-  } catch (err) {
-    // FIXME:
-  }
+  } catch (err) {}
 };
 
 export const logout = async (indexView) => {

@@ -54,8 +54,8 @@ export const tourDetailController = async () => {
       spinner.showSpinner();
       await fetchAndShowTour(id, tourDetailView);
       await tourDetailView.addToBookmark(manageBookmark, id);
-
       tourDetailView.bookingHandler(callAPI);
+      tourDetailView.addImagePopup();
     }
   } catch (err) {
     // FIXME:

@@ -51,6 +51,10 @@ export class TourView {
     this.tourContainer.insertAdjacentHTML("beforeend", markup);
   }
 
+  resetContainer() {
+    this.tourContainer.innerHTML = "";
+  }
+
   updateUIForLoadBtn() {
     const btnText = document.querySelector(".load-more-text");
     const loader = document.querySelector(".loader");
@@ -88,6 +92,27 @@ export class TourView {
       } catch (err) {
         // FIXME:
       }
+    });
+  }
+
+  getSearchInput() {
+    const searchInput = document.querySelector(".search-input");
+    return searchInput.value;
+  }
+
+  addSearchListener(cb) {
+    const searchInput = document.querySelector(".search-input");
+    searchInput.addEventListener("keyup", async (e) => {
+      if (e.keyCode == 13) {
+        const input = this.getSearchInput();
+        await cb(input);
+      }
+    });
+
+    const searchBtn = document.querySelector(".search-label");
+    searchBtn.addEventListener("click", async () => {
+      const input = this.getSearchInput();
+      await cb(input);
     });
   }
 }

@@ -19,7 +19,7 @@
 body {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   padding: 1rem 0rem;
   color: #4b4b4b;
 }
@@ -33,6 +33,7 @@ html {
   max-width: 90%;
   margin: 0 auto;
   overflow: hidden;
+  min-height: 100vh;
 }
 
 .bg {
@@ -258,4 +259,12 @@ html {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+}
+
+.bars {
+  color: #fff;
+  font-size: 1.5rem;
+  display: none;
+  position: relative;
+  z-index: 19;
 }

@@ -181,3 +181,57 @@
 }
 
 /* //////////////// */
+
+.bars {
+  color: #fff;
+  font-size: 1.5rem;
+  display: none;
+  position: relative;
+  z-index: 19;
+}
+
+/* /////// */
+
+.search {
+  max-width: 40rem;
+  padding: 0 2rem;
+  margin: 0 auto;
+  margin-top: 3rem;
+}
+
+.search-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 3rem;
+}
+
+.search-input {
+  padding: 1rem;
+  border: none;
+  width: 100%;
+  overflow: hidden;
+}
+
+.search-input:active,
+.search-input:focus {
+  outline: none;
+  border: none;
+}
+
+.search-label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  background-color: #239d56;
+  color: #fff;
+  padding: 1rem;
+}
+
+.search-label:hover {
+  cursor: pointer;
+}
