@@ -1,7 +1,17 @@
 import { callAPI } from "../model/model";
 import { Spinner } from "../view/spinner";
-import { Popup } from "../view/popup";
 import { MyBookingsView } from "../view/myBookingsView";
+import { Popup } from "../view/popup";
+
+const downloadInvoiceHandler = async (id) => {
+  const invoicepdf = await callAPI(`/api/tour/${id}/invoice`);
+  const popup = new Popup();
+  if (invoicepdf.status === "Fail") {
+    popup.showPopup(invoicepdf.message);
+    popup.hidePopup();
+  }
+  window.open(invoicepdf.data.invoice);
+};
 
 export const myBookingsController = async () => {
   try {
@@ -24,6 +34,8 @@ export const myBookingsController = async () => {
       bookings.data.bookings.forEach((element) => {
         myBookingView.showBookings(element.tour);
       });
+
+      myBookingView.downloadInvoiceListener(downloadInvoiceHandler);
 
       spinner.hideSpinner();
     }

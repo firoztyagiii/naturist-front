@@ -41,10 +41,21 @@ export class MyBookingsView {
         <div class="tour-rating">${tour.averageRatings} <span>rating (${tour.totalRatings})</span></div>
       </div>
       <div class="tour-btn">
-        <a href="/tour-detail.html?id=${tour._id}" class="tour-link">Details</a>
+      <button data-id="${tour._id}" class="tour-link">Invoice</button>
       </div>
     </div>
   </div>`;
     this.container.insertAdjacentHTML("beforeend", markup);
+  }
+
+  downloadInvoiceListener(cb) {
+    const tourContainer = document.querySelector(".tour-container");
+    tourContainer.addEventListener("click", async (e) => {
+      if (!e.target.classList.contains("tour-link")) {
+        return;
+      }
+      const id = e.target.dataset.id;
+      await cb(id);
+    });
   }
 }

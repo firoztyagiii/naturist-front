@@ -126,6 +126,8 @@
   border-radius: 50px;
   font-weight: 300;
   transition: all 0.2s;
+  border: none;
+  outline: none;
 }
 
 .tour-link:hover,
