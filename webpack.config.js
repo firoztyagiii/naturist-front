@@ -1,10 +1,10 @@
 const path = require("path");
 
 module.exports = {
-  entry: "./src/script/controller/indexController.js",
+  entry: "./src/controller/indexController.js",
   output: {
     filename: "app.js",
-    path: path.resolve(__dirname, "src", "script"),
+    path: path.resolve(__dirname),
   },
   mode: "production",
   watch: true,
