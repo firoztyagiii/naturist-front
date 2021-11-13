@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/firoztyagiii/naturist-front/issues"
   },
-  "homepage": "https://github.com/firoztyagiii/naturist-front#readme"
+  "homepage": "https://github.com/firoztyagiii/naturist-front#readme",
+  "engines": {
+    "node": ">=10.0.0"
+  }
 }
