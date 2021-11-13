@@ -1,24 +1,23 @@
 {
   "name": "naturist-front-end",
   "version": "1.0.0",
-  "main": "webpack.config.js",
-  "scripts": {
-    "start": "index.html"
-  },
-  "author": "",
-  "license": "ISC",
+  "description": "",
+  "main": "server.js",
   "dependencies": {
-    "moment": "^2.29.1",
-    "webpack": "^5.58.2",
-    "webpack-cli": "^4.9.0"
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/firoztyagiii/naturist-front.git"
   },
+  "author": "",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/firoztyagiii/naturist-front/issues"
   },
-  "homepage": "https://github.com/firoztyagiii/naturist-front#readme",
-  "description": ""
+  "homepage": "https://github.com/firoztyagiii/naturist-front#readme"
 }
