@@ -1,6 +1,5 @@
 export const RAZORPAY_KEY = "rzp_test_iQXxC9LBZRPfH9";
 export const _DOMAIN = "https://api.softdownloads.net";
-
 export const HOSTING = "https://naturist.sgp1.digitaloceanspaces.com/";
 
 export let isUserLoggedIn = false;
