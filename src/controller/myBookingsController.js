@@ -2,15 +2,20 @@ import { callAPI } from "../model/model";
 import { Spinner } from "../view/spinner";
 import { MyBookingsView } from "../view/myBookingsView";
 import { Popup } from "../view/popup";
+import { sendError } from "./utils/sendError";
 
 const downloadInvoiceHandler = async (id) => {
-  const invoicepdf = await callAPI(`/api/tour/${id}/invoice`);
-  const popup = new Popup();
-  if (invoicepdf.status === "Fail") {
-    popup.showPopup(invoicepdf.message);
-    popup.hidePopup();
+  try {
+    const invoicepdf = await callAPI(`/api/tour/${id}/invoice`);
+    const popup = new Popup();
+    if (invoicepdf.status === "Fail") {
+      popup.showPopup(invoicepdf.message);
+      popup.hidePopup();
+    }
+    window.open(invoicepdf.data.invoice);
+  } catch (err) {
+    sendError(err);
   }
-  window.open(invoicepdf.data.invoice);
 };
 
 export const myBookingsController = async () => {
@@ -40,6 +45,6 @@ export const myBookingsController = async () => {
       spinner.hideSpinner();
     }
   } catch (err) {
-    // FIXME:
+    sendError(err);
   }
 };

@@ -1,6 +1,7 @@
 import { Spinner } from "../view/spinner";
 import { Popup } from "../view/popup";
 import { callAPI, _DOMAIN } from "../model/model";
+import { sendError } from "./utils/sendError";
 
 const spinner = new Spinner();
 const popup = new Popup();
@@ -28,7 +29,9 @@ export const login = async (loginView) => {
       loginView.defaultUI();
       window.location.href = "/";
     }
-  } catch (err) {}
+  } catch (err) {
+    sendError(err);
+  }
 };
 
 export const logout = async (indexView) => {
@@ -38,7 +41,7 @@ export const logout = async (indexView) => {
     window.location.href = "/";
     spinner.hideSpinner();
   } catch (err) {
-    // FIXME:
+    sendError(err);
   }
 };
 
@@ -53,7 +56,7 @@ export const signUp = async (signupView) => {
     popup.hidePopup();
     signupView.defaultUI();
   } catch (err) {
-    // FIXME:
+    sendError(err);
   }
 };
 
@@ -92,6 +95,7 @@ export const updatePhoto = async (form) => {
     const response = await fetch(`${_DOMAIN}/api/user/update-me/photo`, {
       method: "POST",
       body: form,
+      credentials: "include",
     });
     const realres = await response.json();
     popup.showPopup(realres.message);

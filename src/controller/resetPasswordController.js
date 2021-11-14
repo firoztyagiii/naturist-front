@@ -4,6 +4,7 @@ import { Popup } from "../view/popup";
 import { logout } from "./userController";
 import { IndexView } from "../view/indexView";
 import { Spinner } from "../view/spinner";
+import { sendError } from "./utils/sendError";
 
 const popup = new Popup();
 
@@ -22,7 +23,7 @@ const resetPasswordHandler = async (input, token) => {
       }, 1000);
     }
   } catch (err) {
-    // FIXME:
+    sendError(err);
   }
 };
 

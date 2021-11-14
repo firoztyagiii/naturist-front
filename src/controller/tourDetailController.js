@@ -2,6 +2,7 @@ import { callAPI } from "../model/model";
 import { TourDetailView } from "../view/tourDetailView";
 import { Popup } from "../view/popup";
 import { Spinner } from "../view/spinner";
+import { sendError } from "./utils/sendError";
 
 const popup = new Popup();
 const tourDetailView = new TourDetailView();
@@ -23,7 +24,7 @@ const manageBookmark = async (tourId) => {
     }
     popup.hidePopup();
   } catch (err) {
-    // FIXME:
+    sendError(err);
   }
 };
 
@@ -39,7 +40,7 @@ const fetchAndShowTour = async (id, tourDetailView) => {
     spinner.hideSpinner();
   } catch (err) {
     spinner.hideSpinner();
-    // FIXME:
+    sendError(err);
   }
 };
 
@@ -58,6 +59,6 @@ export const tourDetailController = async () => {
       tourDetailView.addImagePopup();
     }
   } catch (err) {
-    // FIXME:
+    sendError(err);
   }
 };

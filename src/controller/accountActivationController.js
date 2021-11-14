@@ -1,4 +1,5 @@
 import { callAPI } from "../model/model";
+import { sendError } from "./utils/sendError";
 
 export const accountActivationController = async () => {
   try {
@@ -13,6 +14,6 @@ export const accountActivationController = async () => {
       } else document.write(response.message);
     }
   } catch (err) {
-    // FIXME: add error
+    sendError(err);
   }
 };

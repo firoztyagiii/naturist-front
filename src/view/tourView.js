@@ -1,6 +1,7 @@
 import { _DOMAIN } from "../model/model";
 import { HOSTING } from "../model/model";
 import { getPageNumberFromQuery } from "../controller/pagination";
+import { Spinner } from "./spinner";
 
 export class TourView {
   constructor() {
@@ -102,17 +103,22 @@ export class TourView {
 
   addSearchListener(cb) {
     const searchInput = document.querySelector(".search-input");
+    const spinner = new Spinner();
     searchInput.addEventListener("keyup", async (e) => {
       if (e.keyCode == 13) {
+        spinner.showSpinner();
         const input = this.getSearchInput();
         await cb(input);
+        spinner.hideSpinner();
       }
     });
 
     const searchBtn = document.querySelector(".search-label");
     searchBtn.addEventListener("click", async () => {
+      spinner.showSpinner();
       const input = this.getSearchInput();
       await cb(input);
+      spinner.hideSpinner();
     });
   }
 }

@@ -4,35 +4,52 @@ import { Spinner } from "../view/spinner";
 import { userData } from "../model/model";
 import { isLoggedIn } from "./authController";
 import { updatePassword, updateName, updateEmail, updatePhoto } from "./userController";
+import { sendError } from "./utils/sendError";
 
 const passwordUpdateHandler = async (dashboardView) => {
-  dashboardView.updatePasswordBtnUI();
-  const input = dashboardView.getPasswordInput();
-  await updatePassword(input);
-  dashboardView.resetPasswordBtnUI();
+  try {
+    dashboardView.updatePasswordBtnUI();
+    const input = dashboardView.getPasswordInput();
+    await updatePassword(input);
+    dashboardView.resetPasswordBtnUI();
+  } catch (err) {
+    sendError(err);
+  }
 };
 
 const nameUpdateHandler = async (dashboardView) => {
-  dashboardView.updateNameBtnUI();
-  const input = dashboardView.getNameInput();
-  await updateName(input);
-  dashboardView.resetNameBtnUI();
+  try {
+    dashboardView.updateNameBtnUI();
+    const input = dashboardView.getNameInput();
+    await updateName(input);
+    dashboardView.resetNameBtnUI();
+  } catch (err) {
+    sendError(err);
+  }
 };
 
 const emailUpdateHandler = async (dashboardView) => {
-  dashboardView.updateEmailBtnUI();
-  const input = dashboardView.getEmailInput();
-  await updateEmail(input);
-  dashboardView.resetEmailBtnUI();
+  try {
+    dashboardView.updateEmailBtnUI();
+    const input = dashboardView.getEmailInput();
+    await updateEmail(input);
+    dashboardView.resetEmailBtnUI();
+  } catch (err) {
+    sendError(err);
+  }
 };
 
 const photoUpdateHandler = async (dashboardView) => {
-  dashboardView.updatePhotoBtnUI();
-  const photo = dashboardView.getImageFile();
-  const form = new FormData();
-  form.append("photo", photo);
-  await updatePhoto(form);
-  dashboardView.resetPhotoBtnUI();
+  try {
+    dashboardView.updatePhotoBtnUI();
+    const photo = dashboardView.getImageFile();
+    const form = new FormData();
+    form.append("photo", photo);
+    await updatePhoto(form);
+    dashboardView.resetPhotoBtnUI();
+  } catch (err) {
+    sendError(err);
+  }
 };
 
 export const dashBoardController = () => {
