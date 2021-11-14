@@ -66,7 +66,7 @@ export const updatePassword = async (input) => {
     popup.showPopup(response.message);
     popup.hidePopup();
   } catch (err) {
-    // FIXME:
+    sendError(err);
   }
 };
 
@@ -76,7 +76,7 @@ export const updateName = async (input) => {
     popup.showPopup(response.message);
     popup.hidePopup();
   } catch (err) {
-    // FIXME:
+    sendError(err);
   }
 };
 
@@ -86,7 +86,7 @@ export const updateEmail = async (input) => {
     popup.showPopup(response.message);
     popup.hidePopup();
   } catch (err) {
-    // FIXME:
+    sendError(err);
   }
 };
 
@@ -101,6 +101,6 @@ export const updatePhoto = async (form) => {
     popup.showPopup(realres.message);
     popup.hidePopup();
   } catch (err) {
-    // FIXME:
+    sendError(err);
   }
 };
