@@ -1,7 +1,6 @@
 import { TwoFaView } from "../view/2faView";
 import { callAPI } from "../model/model";
 import { Popup } from "../view/popup";
-import { sendError } from "./utils/sendError";
 
 const twoFAView = new TwoFaView();
 const popup = new Popup();
@@ -26,7 +25,7 @@ const twoFAHandler = async (token) => {
 
     twoFAView.defaultUI();
   } catch (err) {
-    sendError(err);
+    console.log(err);
   }
 };
 

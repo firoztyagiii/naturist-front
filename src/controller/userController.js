@@ -1,7 +1,6 @@
 import { Spinner } from "../view/spinner";
 import { Popup } from "../view/popup";
 import { callAPI, _DOMAIN } from "../model/model";
-import { sendError } from "./utils/sendError";
 
 const spinner = new Spinner();
 const popup = new Popup();
@@ -30,7 +29,7 @@ export const login = async (loginView) => {
       window.location.href = "/";
     }
   } catch (err) {
-    sendError(err);
+    console.log(err);
   }
 };
 
@@ -41,7 +40,7 @@ export const logout = async (indexView) => {
     window.location.href = "/";
     spinner.hideSpinner();
   } catch (err) {
-    sendError(err);
+    console.log(err);
   }
 };
 
@@ -56,7 +55,7 @@ export const signUp = async (signupView) => {
     popup.hidePopup();
     signupView.defaultUI();
   } catch (err) {
-    sendError(err);
+    console.log(err);
   }
 };
 
@@ -66,7 +65,7 @@ export const updatePassword = async (input) => {
     popup.showPopup(response.message);
     popup.hidePopup();
   } catch (err) {
-    sendError(err);
+    console.log(err);
   }
 };
 
@@ -76,7 +75,7 @@ export const updateName = async (input) => {
     popup.showPopup(response.message);
     popup.hidePopup();
   } catch (err) {
-    sendError(err);
+    console.log(err);
   }
 };
 
@@ -86,7 +85,7 @@ export const updateEmail = async (input) => {
     popup.showPopup(response.message);
     popup.hidePopup();
   } catch (err) {
-    sendError(err);
+    console.log(err);
   }
 };
 
@@ -101,6 +100,6 @@ export const updatePhoto = async (form) => {
     popup.showPopup(realres.message);
     popup.hidePopup();
   } catch (err) {
-    sendError(err);
+    console.log(err);
   }
 };

@@ -3,7 +3,6 @@ import { TourView } from "../view/tourView";
 import { Spinner } from "../view/spinner";
 import { getPageNumberFromQuery } from "./pagination";
 import { Popup } from "../view/popup";
-import { sendError } from "./utils/sendError";
 
 const popup = new Popup();
 
@@ -20,7 +19,7 @@ const getSearchData = async (input) => {
     tourView.resetContainer();
     tourView.showMarkup(data);
   } catch (err) {
-    sendError(err);
+    console.log(err);
   }
 };
 
@@ -43,6 +42,6 @@ export const tourController = async () => {
       spinner.hideSpinner();
     }
   } catch (err) {
-    sendError(err);
+    console.log(err);
   }
 };

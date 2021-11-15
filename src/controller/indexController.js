@@ -13,7 +13,6 @@ import { twoFaController } from "./2faController";
 import { myBookingsController } from "./myBookingsController";
 import { navBar } from "./utils/navbar";
 import { errorController } from "./errorController";
-import { sendError } from "./utils/sendError";
 
 const spinner = new Spinner();
 
@@ -36,7 +35,7 @@ const init = async () => {
     errorController();
     spinner.hideSpinner();
   } catch (err) {
-    sendError(err);
+    console.log(err);
   }
 };
 

@@ -1,6 +1,5 @@
 import { callAPI } from "../model/model";
 import { Spinner } from "../view/spinner";
-import { sendError } from "./utils/sendError";
 
 const updateEmailHandler = async (token) => {
   try {
@@ -11,7 +10,7 @@ const updateEmailHandler = async (token) => {
       document.write("Invalid token or expired!");
     }
   } catch (err) {
-    sendError(err);
+    console.log(err);
   }
 };
 

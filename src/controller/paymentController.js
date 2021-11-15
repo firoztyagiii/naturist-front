@@ -1,6 +1,5 @@
 import { callAPI } from "../model/model";
 import { RAZORPAY_KEY } from "../model/model";
-import { sendError } from "./utils/sendError";
 
 export const payment = async (id) => {
   try {
@@ -17,6 +16,6 @@ export const payment = async (id) => {
     const rzr = new Razorpay(options);
     rzr.open();
   } catch (err) {
-    sendError(err);
+    console.log(err);
   }
 };

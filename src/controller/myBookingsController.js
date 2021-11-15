@@ -2,7 +2,6 @@ import { callAPI } from "../model/model";
 import { Spinner } from "../view/spinner";
 import { MyBookingsView } from "../view/myBookingsView";
 import { Popup } from "../view/popup";
-import { sendError } from "./utils/sendError";
 
 const downloadInvoiceHandler = async (id) => {
   try {
@@ -14,7 +13,7 @@ const downloadInvoiceHandler = async (id) => {
     }
     window.open(invoicepdf.data.invoice);
   } catch (err) {
-    sendError(err);
+    console.log(err);
   }
 };
 
@@ -45,6 +44,6 @@ export const myBookingsController = async () => {
       spinner.hideSpinner();
     }
   } catch (err) {
-    sendError(err);
+    console.log(err);
   }
 };

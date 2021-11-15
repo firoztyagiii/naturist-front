@@ -4,7 +4,6 @@ import { Spinner } from "../view/spinner";
 import { userData } from "../model/model";
 import { isLoggedIn } from "./authController";
 import { updatePassword, updateName, updateEmail, updatePhoto } from "./userController";
-import { sendError } from "./utils/sendError";
 
 const passwordUpdateHandler = async (dashboardView) => {
   try {
@@ -13,7 +12,7 @@ const passwordUpdateHandler = async (dashboardView) => {
     await updatePassword(input);
     dashboardView.resetPasswordBtnUI();
   } catch (err) {
-    sendError(err);
+    console.log(err);
   }
 };
 
@@ -24,7 +23,7 @@ const nameUpdateHandler = async (dashboardView) => {
     await updateName(input);
     dashboardView.resetNameBtnUI();
   } catch (err) {
-    sendError(err);
+    console.log(err);
   }
 };
 
@@ -35,7 +34,7 @@ const emailUpdateHandler = async (dashboardView) => {
     await updateEmail(input);
     dashboardView.resetEmailBtnUI();
   } catch (err) {
-    sendError(err);
+    console.log(err);
   }
 };
 
@@ -48,7 +47,7 @@ const photoUpdateHandler = async (dashboardView) => {
     await updatePhoto(form);
     dashboardView.resetPhotoBtnUI();
   } catch (err) {
-    sendError(err);
+    console.log(err);
   }
 };
 

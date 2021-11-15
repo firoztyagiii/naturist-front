@@ -2,7 +2,6 @@ import { ForgotPasswordView } from "../view/forgotPasswordView";
 import { callAPI } from "../model/model";
 import { Popup } from "../view/popup";
 import { Spinner } from "../view/spinner";
-import { sendError } from "./utils/sendError";
 
 const popup = new Popup();
 
@@ -12,7 +11,7 @@ const resetPasswordHander = async (email) => {
     popup.showPopup(response.message);
     popup.hidePopup();
   } catch (err) {
-    sendError(err);
+    console.log(err);
   }
 };
 
