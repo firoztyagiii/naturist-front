@@ -20,7 +20,9 @@ const init = async () => {
   try {
     spinner.showSpinner();
     await checkLogin();
-    navBar();
+    if (window.location.href !== "/activate-account.html") {
+      navBar();
+    }
     accountActivationController();
     tourController();
     myBookingsController();

@@ -3,6 +3,7 @@ import { callAPI } from "../model/model";
 export const accountActivationController = async () => {
   try {
     if (window.location.pathname === "/activate-account.html") {
+      console.log("hi");
       const token = window.location.search.split("=")[1];
       if (!token) return (window.location.href = "/");
 
